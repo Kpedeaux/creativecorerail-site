@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoreRail — Operations Infrastructure for Multi-Vendor Spaces</title>
+  <meta name="description" content="CoreRail is the back-office operations platform for multi-vendor physical spaces. Automated vendor settlements, shift coordination, and operational transparency.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --rail-black: #2C2F2A;
+      --sage: #6B7F5E;
+      --sage-light: #A3B18A;
+      --copper: #B8860B;
+      --ivory: #FAF8F4;
+      --parchment: #F2EFE9;
+      --stone: #E0DDD6;
+      --slate: #6B6F66;
+      --charcoal: #3D4038;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Outfit', 'Helvetica Neue', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--rail-black);
+      background-color: var(--ivory);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--rail-black);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.2); }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-wordmark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+      color: var(--ivory);
+    }
+    .nav-wordmark span { color: var(--sage-light); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sage-light);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+    .nav-link:hover { color: var(--ivory); background: rgba(163,177,138,0.1); }
+    .nav-link--primary {
+      background: var(--sage);
+      color: var(--ivory);
+    }
+    .nav-link--primary:hover { background: var(--sage-light); color: var(--rail-black); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(107,127,94,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(184,134,11,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 900px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      border: 1px solid var(--stone);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      color: var(--rail-black);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--sage);
+    }
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--charcoal);
+      max-width: 620px;
+      margin: 0 auto 48px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn--sage {
+      background: var(--sage);
+      color: var(--ivory);
+    }
+    .btn--sage:hover { background: #5A6E4F; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(107,127,94,0.3); }
+    .btn--outline {
+      background: transparent;
+      color: var(--rail-black);
+      border: 1.5px solid var(--stone);
+    }
+    .btn--outline:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-1px); }
+    .btn svg { width: 16px; height: 16px; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 100px 40px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+
+    /* ── PILLARS ── */
+    .pillars { background: var(--parchment); }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--ivory);
+      border-radius: 10px;
+      padding: 36px 28px;
+      border-left: 3px solid var(--sage);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pillar-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--parchment);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .pillar-icon svg { width: 22px; height: 22px; color: var(--sage); }
+    .pillar-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .pillar-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--slate);
+    }
+
+    /* ── PORTALS ── */
+    .portals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .portal-card {
+      background: var(--rail-black);
+      border-radius: 12px;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .portal-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+    .portal-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 16px;
+    }
+    .portal-card h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 12px;
+    }
+    .portal-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--sage-light);
+      margin-bottom: 32px;
+      flex: 1;
+    }
+    .portal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ivory);
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 1.5px solid rgba(250,248,244,0.2);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      align-self: flex-start;
+    }
+    .portal-link:hover {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+    .portal-link svg { width: 16px; height: 16px; }
+
+    /* ── POSITIONING ── */
+    .positioning {
+      background: var(--rail-black);
+      text-align: center;
+    }
+    .positioning .section-label { color: var(--sage-light); }
+    .positioning blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.8vw, 32px);
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--ivory);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--rail-black);
+      border-top: 1px solid rgba(250,248,244,0.08);
+      padding: 40px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ivory);
+    }
+    .footer-wordmark span { color: var(--sage-light); }
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--slate);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--sage-light);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--ivory); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-wordmark { font-size: 18px; }
+      .nav-links { gap: 4px; }
+      .nav-link { padding: 6px 12px; font-size: 12px; }
+
+      section { padding: 64px 20px; }
+      .hero { padding: 100px 20px 60px; }
+
+      .pillar-grid { grid-template-columns: 1fr; }
+      .portals-grid { grid-template-columns: 1fr; }
+
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; justify-content: center; }
+
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links .nav-link:not(.nav-link--primary) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 120 120" fill="none">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+        <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+      </svg>
+      <div class="nav-wordmark">CORE<span>RAIL</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#portals" class="nav-link">Portals</a>
+      <a href="https://vendorportal.creativecorerail.com" class="nav-link nav-link--primary">Vendor Login</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Operations Infrastructure</div>
+      <h1>The backbone your<br>building <em>runs on</em>.</h1>
+      <p class="hero-sub">
+        CoreRail automates vendor settlements, coordinates daily operations, and
+        gives operators and their tenants a single source of truth for money and workflow.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://vendorportal.creativecorerail.com" class="btn btn--sage">
+          Vendor Portal
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+        </a>
+        <a href="https://managerportal.creativecorerail.com" class="btn btn--outline">
+          Manager Portal
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="section-inner">
+      <span class="section-label">What CoreRail Does</span>
+      <h2 class="section-title">One building. Many businesses.<br>One system.</h2>
+      <p class="section-desc">
+        Every multi-vendor space runs on settlements, shift handoffs, and trust.
+        CoreRail replaces the spreadsheets and institutional memory with automated,
+        auditable infrastructure.
+      </p>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <h3>Financial Clarity</h3>
+          <p>
+            Automated vendor settlements pulled from live POS data. Every dollar
+            tracked, every split calculated, every payout auditable.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+            </svg>
+          </div>
+          <h3>Operational Continuity</h3>
+          <p>
+            Shift coordination, daily checklists, and handoff protocols that keep
+            a physical operation running. Nothing falls through the cracks.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3>Multi-Tenant Transparency</h3>
+          <p>
+            Vendors see exactly what they owe and what they've earned. Operators
+            see the whole picture. Trust through clarity, not promises.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTALS -->
+  <section id="portals">
+    <div class="section-inner">
+      <span class="section-label">Access Your Portal</span>
+      <h2 class="section-title">Two portals. One system.</h2>
+      <p class="section-desc">
+        Whether you're a vendor checking your weekly settlement or an operator
+        managing the building, CoreRail has a dedicated workspace for you.
+      </p>
+      <div class="portals-grid">
+        <div class="portal-card">
+          <div class="portal-tag">For Vendors</div>
+          <h3>Vendor Portal</h3>
+          <p>
+            View your settlements, track sales data, review your deal structure,
+            and access payout history — all in one place.
+          </p>
+          <a href="https://vendorportal.creativecorerail.com" class="portal-link">
+            Open Vendor Portal
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
+        </div>
+        <div class="portal-card">
+          <div class="portal-tag">For Operators</div>
+          <h3>Manager Portal</h3>
+          <p>
+            Run settlements, coordinate shifts, manage vendors, and oversee
+            daily operations from a single dashboard.
+          </p>
+          <a href="https://managerportal.creativecorerail.com" class="portal-link">
+            Open Manager Portal
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section class="positioning">
+    <div class="section-inner">
+      <span class="section-label">Built by Operators</span>
+      <blockquote>
+        Built because spreadsheet settlements don't scale past three vendors,
+        and institutional memory doesn't survive staff turnover.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
+          <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
+          <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        </svg>
+        <div class="footer-wordmark">CORE<span>RAIL</span></div>
+        <span class="footer-copy">&copy; 2026 CoreRail</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://vendorportal.creativecorerail.com">Vendor Portal</a>
+        <a href="https://managerportal.creativecorerail.com">Manager Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+</body>
+</html>
