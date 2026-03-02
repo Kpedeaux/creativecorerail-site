@@ -305,6 +305,35 @@
     }
     .portal-link svg { width: 16px; height: 16px; }
 
+    /* ── WHY CORERAIL ── */
+    .why-corerail {
+      background: var(--parchment);
+    }
+    .why-corerail .section-title {
+      margin-bottom: 32px;
+    }
+    .why-corerail-lead {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--rail-black);
+      margin-bottom: 32px;
+      max-width: 720px;
+    }
+    .why-corerail-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--charcoal);
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+    .why-corerail-body p:last-child {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: var(--rail-black);
+    }
+
     /* ── POSITIONING ── */
     .positioning {
       background: var(--rail-black);
@@ -522,10 +551,35 @@
     </div>
   </section>
 
+  <!-- WHY CORERAIL -->
+  <section class="why-corerail">
+    <div class="section-inner">
+      <span class="section-label">Built by Operators</span>
+      <h2 class="section-title">Why CoreRail?</h2>
+      <p class="why-corerail-lead">
+        Because it was built inside a running operation.
+      </p>
+      <div class="why-corerail-body">
+        <p>
+          Kevin Pedeaux has operated multi-vendor food and hospitality spaces in New Orleans since 2015. Today he runs St. Roch Market under a 30-year city lease &mdash; eleven independent vendor businesses under one roof, one bar, daily settlements, vendor agreements, shift handoffs, and the kind of operational complexity that breaks generic software fast.
+        </p>
+        <p>
+          He didn't build CoreRail because he thought it was a good idea. He built it because he was doing vendor settlements in spreadsheets at midnight and knew there had to be a better way. The first version ran inside his own building. Every feature exists because a real operator needed it to exist.
+        </p>
+        <p>
+          He also runs three CR Coffee locations and a wholesale roasting operation supplying over 100 accounts nationwide. He understands what it means to have multiple revenue streams, multiple teams, and no margin for systems that fail during service.
+        </p>
+        <p>
+          CoreRail isn't a product built by developers who interviewed operators. It's infrastructure built by someone who still opens the building every morning.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- POSITIONING -->
   <section class="positioning">
     <div class="section-inner">
-      <span class="section-label">Built by Operators</span>
+      <span class="section-label">The Bottom Line</span>
       <blockquote>
         Built because spreadsheet settlements don't scale past three vendors,
         and institutional memory doesn't survive staff turnover.
