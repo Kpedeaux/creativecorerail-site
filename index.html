@@ -107,8 +107,8 @@
       background-image: url('market-interior.jpg');
       background-size: cover;
       background-position: center;
-      opacity: 0.12;
-      filter: grayscale(40%) sepia(15%);
+      opacity: 0.06;
+      filter: grayscale(60%) sepia(20%);
       pointer-events: none;
     }
     .hero::after {
@@ -116,7 +116,7 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background:
-        linear-gradient(180deg, var(--ivory) 0%, transparent 30%, transparent 70%, var(--ivory) 100%),
+        linear-gradient(180deg, var(--ivory) 0%, rgba(250,248,244,0.4) 40%, rgba(250,248,244,0.4) 60%, var(--ivory) 100%),
         radial-gradient(ellipse at 20% 50%, rgba(107,127,94,0.06) 0%, transparent 60%),
         radial-gradient(ellipse at 80% 50%, rgba(184,134,11,0.04) 0%, transparent 60%);
       pointer-events: none;
