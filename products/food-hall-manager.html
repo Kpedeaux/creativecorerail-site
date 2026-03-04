@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Food Hall Manager — CoreRail</title>
+  <meta name="description" content="Automated vendor payment settlement for food halls. Pull Square data, calculate commissions and fees, generate auditable reports. No more midnight spreadsheets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 120 120" fill="none">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+        <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+      </svg>
+      <div class="nav-wordmark">CORE<span>RAIL</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/#products" class="nav-link">Products</a>
+      <a href="/#about" class="nav-link">About</a>
+      <a href="/tools/photo-editor.html" class="nav-link">Tools</a>
+      <a href="/#contact" class="nav-link nav-link--primary">Get in Touch</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <a href="/#products" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Products
+      </a>
+      <div class="hero-badge">Food Hall Operations</div>
+      <h1>The operating system for <em>food halls</em>.</h1>
+      <p>Automated vendor settlements pulled from live Square POS data. Commission splits, delivery fees, daily minimums, linen charges, closure-day prorations, and CPA-ready Excel exports. Currently managing weekly settlements for 11 vendors at St. Roch Market.</p>
+    </div>
+  </section>
+
+  <section class="problem-solution">
+    <div class="section-inner">
+      <div class="ps-grid">
+        <div class="ps-block">
+          <h3>The Problem</h3>
+          <p>You're running a food hall with 10+ vendors. Every week you pull Square data, open a spreadsheet, calculate commissions, subtract delivery fees, adjust for closure days, deduct linen charges, and hope you didn't miss a row. Then you do it again for the next vendor. At midnight.</p>
+        </div>
+        <div class="ps-block">
+          <h3>The Solution</h3>
+          <p>Food Hall Manager pulls sales directly from Square, calculates every vendor's weekly settlement automatically &mdash; commissions, delivery splits, daily minimums, closure day prorations, linen charges, adjustments &mdash; and generates auditable Excel reports. Vendors log in to see their own numbers. Admins approve with one click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="section-inner">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">What it does.</h2>
+      <p class="section-desc">Every feature exists because an operator needed it to exist.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Square Integration</h3>
+          <p>Pulls completed payments and orders from Square API. Detects delivery vs. dine-in by platform (DoorDash, Uber Eats, GrubHub, Postmates). Calculates net sales accounting for refunds, discounts, taxes, and tips.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Configurable Fee Models</h3>
+          <p>Three plan types: Standard (percentage + daily minimum), Flat (percentage only), Weekly (percentage + weekly minimum). Per-vendor delivery fees, service charges, and linen charge scheduling.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Settlement Calculations</h3>
+          <p>Weekly Monday&ndash;Sunday cycles. Daily transfer breakdowns. Automatic closure-day proration. Gross and net transfer calculations with full adjustment tracking.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Vendor Portal</h3>
+          <p>Each vendor logs in to view approved weekly reports. Sales breakdowns, fee details, payout amounts. Anonymous performance rankings against other vendors in their market.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Admin Workflow</h3>
+          <p>Draft, approve, unlock, recalculate weekly periods. Add adjustments (fines, equipment, linen). Manage vendor accounts, fee structures, and Square location mappings. Full audit logging.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Excel Exports</h3>
+          <p>Annual vendor reports with Sales Transfers and Tips sheets. All-vendors consolidated workbook. Currency-formatted, CPA-ready output with yearly totals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-strip">
+    <span class="section-label">Technology</span>
+    <div class="tech-tags">
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">Express</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Square API</span>
+      <span class="tech-tag">SQLite</span>
+      <span class="tech-tag">JWT Auth</span>
+      <span class="tech-tag">ExcelJS</span>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="section-inner">
+      <span class="section-label">Let's Talk</span>
+      <h2 class="section-title">Running a food hall?</h2>
+      <p>Stop doing vendor settlements in spreadsheets. Food Hall Manager is already in production &mdash; let's talk about running it for your building.</p>
+      <a href="mailto:Kevin@strochmarket.com" class="btn btn--sage">
+        Get in Touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
+          <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
+          <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        </svg>
+        <div class="footer-wordmark">CORE<span>RAIL</span></div>
+        <span class="footer-copy">&copy; 2026 CoreRail</span>
+      </div>
+      <div class="footer-links">
+        <a href="/products/food-hall-manager.html">Food Hall Manager</a>
+        <a href="/products/manager-portal.html">Manager Portal</a>
+        <a href="/products/barista-portal.html">Barista Portal</a>
+        <a href="/products/st-roch-market.html">St. Roch Market</a>
+        <a href="/tools/photo-editor.html">Photo Editor</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+</body>
+</html>

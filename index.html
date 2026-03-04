@@ -4,426 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>CoreRail — Operations Infrastructure for Multi-Vendor Spaces</title>
-  <meta name="description" content="CoreRail is the back-office operations platform for multi-vendor physical spaces. Automated vendor settlements, shift coordination, and operational transparency.">
+  <title>CoreRail — Operational Software for Hospitality &amp; Food Service</title>
+  <meta name="description" content="CoreRail builds custom operational software for food halls, coffee shops, and hospitality businesses — vendor settlements, inventory tracking, shift management, and public-facing web presence. Built in New Orleans. Running in production.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --rail-black: #2C2F2A;
-      --sage: #6B7F5E;
-      --sage-light: #A3B18A;
-      --copper: #B8860B;
-      --ivory: #FAF8F4;
-      --parchment: #F2EFE9;
-      --stone: #E0DDD6;
-      --slate: #6B6F66;
-      --charcoal: #3D4038;
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Outfit', 'Helvetica Neue', sans-serif;
-      --font-mono: 'DM Mono', monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--rail-black);
-      background-color: var(--ivory);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: var(--rail-black);
-      padding: 0 40px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: box-shadow 0.3s ease;
-    }
-    .nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.2); }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .nav-logo svg { flex-shrink: 0; }
-    .nav-wordmark {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 0.02em;
-      color: var(--ivory);
-    }
-    .nav-wordmark span { color: var(--sage-light); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .nav-link {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--sage-light);
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      letter-spacing: 0.02em;
-    }
-    .nav-link:hover { color: var(--ivory); background: rgba(163,177,138,0.1); }
-    .nav-link--primary {
-      background: var(--sage);
-      color: var(--ivory);
-    }
-    .nav-link--primary:hover { background: var(--sage-light); color: var(--rail-black); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 40px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-network {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(107,127,94,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 50%, rgba(184,134,11,0.04) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      max-width: 900px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sage);
-      border: 1px solid var(--stone);
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 32px;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5.5vw, 64px);
-      font-weight: 700;
-      line-height: 1.08;
-      margin-bottom: 24px;
-      color: var(--rail-black);
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--sage);
-    }
-    .hero-sub {
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--charcoal);
-      max-width: 620px;
-      margin: 0 auto 48px;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-    .btn--sage {
-      background: var(--sage);
-      color: var(--ivory);
-    }
-    .btn--sage:hover { background: #5A6E4F; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(107,127,94,0.3); }
-    .btn--outline {
-      background: transparent;
-      color: var(--rail-black);
-      border: 1.5px solid var(--stone);
-    }
-    .btn--outline:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-1px); }
-    .btn svg { width: 16px; height: 16px; }
-
-    /* ── SECTION SHARED ── */
-    section { padding: 100px 40px; }
-    .section-inner { max-width: 1080px; margin: 0 auto; }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sage);
-      display: block;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .section-desc {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--charcoal);
-      max-width: 600px;
-      margin-bottom: 48px;
-    }
-
-    /* ── PILLARS ── */
-    .pillars { background: var(--parchment); }
-    .pillar-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .pillar-card {
-      background: var(--ivory);
-      border-radius: 10px;
-      padding: 36px 28px;
-      border-left: 3px solid var(--sage);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .pillar-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
-    .pillar-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--parchment);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .pillar-icon svg { width: 22px; height: 22px; color: var(--sage); }
-    .pillar-card h3 {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .pillar-card p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--slate);
-    }
-
-    /* ── PORTALS ── */
-    .portals-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .portal-card {
-      background: var(--rail-black);
-      border-radius: 12px;
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .portal-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
-    .portal-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-      margin-bottom: 16px;
-    }
-    .portal-card h3 {
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--ivory);
-      margin-bottom: 12px;
-    }
-    .portal-card p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--sage-light);
-      margin-bottom: 32px;
-      flex: 1;
-    }
-    .portal-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ivory);
-      text-decoration: none;
-      padding: 12px 24px;
-      border: 1.5px solid rgba(250,248,244,0.2);
-      border-radius: 8px;
-      transition: all 0.2s ease;
-      align-self: flex-start;
-    }
-    .portal-link:hover {
-      background: var(--sage);
-      border-color: var(--sage);
-    }
-    .portal-link svg { width: 16px; height: 16px; }
-
-    /* ── WHY CORERAIL ── */
-    .why-corerail {
-      background: var(--parchment);
-    }
-    .why-corerail .section-title {
-      margin-bottom: 32px;
-    }
-    .why-corerail-lead {
-      font-family: var(--font-display);
-      font-size: clamp(18px, 2.2vw, 22px);
-      font-weight: 600;
-      line-height: 1.5;
-      color: var(--rail-black);
-      margin-bottom: 32px;
-      max-width: 720px;
-    }
-    .why-corerail-body p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--charcoal);
-      max-width: 720px;
-      margin-bottom: 20px;
-    }
-    .why-corerail-body p:last-child {
-      margin-bottom: 0;
-      font-weight: 500;
-      color: var(--rail-black);
-    }
-
-    /* ── POSITIONING ── */
-    .positioning {
-      background: var(--rail-black);
-      text-align: center;
-    }
-    .positioning .section-label { color: var(--sage-light); }
-    .positioning blockquote {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 2.8vw, 32px);
-      font-weight: 500;
-      line-height: 1.5;
-      color: var(--ivory);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--rail-black);
-      border-top: 1px solid rgba(250,248,244,0.08);
-      padding: 40px;
-    }
-    .footer-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .footer-wordmark {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--ivory);
-    }
-    .footer-wordmark span { color: var(--sage-light); }
-    .footer-copy {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--slate);
-    }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-links a {
-      font-size: 13px;
-      color: var(--sage-light);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .footer-links a:hover { color: var(--ivory); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav { padding: 0 20px; }
-      .nav-wordmark { font-size: 18px; }
-      .nav-links { gap: 4px; }
-      .nav-link { padding: 6px 12px; font-size: 12px; }
-
-      section { padding: 64px 20px; }
-      .hero { padding: 100px 20px 60px; }
-
-      .pillar-grid { grid-template-columns: 1fr; }
-      .portals-grid { grid-template-columns: 1fr; }
-
-      .hero-ctas { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 300px; justify-content: center; }
-
-      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links .nav-link:not(.nav-link--primary) { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -445,15 +31,16 @@
       <div class="nav-wordmark">CORE<span>RAIL</span></div>
     </a>
     <div class="nav-links">
-      <a href="#portals" class="nav-link">Portals</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="/tools/photo-editor.html" class="nav-link">Tools</a>
+      <a href="#contact" class="nav-link nav-link--primary">Get in Touch</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <!-- Network pattern background -->
     <svg class="hero-network" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <!-- Connection lines -->
       <line x1="120" y1="140" x2="320" y2="200" stroke="var(--sage)" stroke-width="1" opacity="0.12"/>
       <line x1="320" y1="200" x2="540" y2="120" stroke="var(--sage)" stroke-width="1" opacity="0.08"/>
       <line x1="540" y1="120" x2="760" y2="220" stroke="var(--sage)" stroke-width="1" opacity="0.10"/>
@@ -468,7 +55,6 @@
       <line x1="500" y1="600" x2="720" y2="680" stroke="var(--sage)" stroke-width="1" opacity="0.10"/>
       <line x1="720" y1="680" x2="940" y2="620" stroke="var(--sage)" stroke-width="1" opacity="0.06"/>
       <line x1="940" y1="620" x2="1140" y2="700" stroke="var(--sage)" stroke-width="1" opacity="0.08"/>
-      <!-- Vertical connections -->
       <line x1="320" y1="200" x2="360" y2="440" stroke="var(--sage)" stroke-width="1" opacity="0.06"/>
       <line x1="540" y1="120" x2="600" y2="400" stroke="var(--sage)" stroke-width="1" opacity="0.05"/>
       <line x1="760" y1="220" x2="720" y2="680" stroke="var(--sage)" stroke-width="1" opacity="0.04"/>
@@ -476,7 +62,6 @@
       <line x1="120" y1="140" x2="160" y2="380" stroke="var(--sage)" stroke-width="1" opacity="0.05"/>
       <line x1="980" y1="160" x2="1060" y2="420" stroke="var(--sage)" stroke-width="1" opacity="0.05"/>
       <line x1="160" y1="380" x2="280" y2="640" stroke="var(--sage)" stroke-width="1" opacity="0.04"/>
-      <!-- Nodes -->
       <circle cx="120" cy="140" r="4" fill="var(--sage)" opacity="0.15"/>
       <circle cx="320" cy="200" r="5" fill="var(--sage)" opacity="0.18"/>
       <circle cx="540" cy="120" r="4" fill="var(--sage)" opacity="0.12"/>
@@ -496,19 +81,18 @@
       <circle cx="1140" cy="700" r="3" fill="var(--sage)" opacity="0.08"/>
     </svg>
     <div class="hero-inner">
-      <div class="hero-badge">Operations Infrastructure</div>
-      <h1>The backbone your<br>building <em>runs on</em>.</h1>
+      <div class="hero-badge">Software for Hospitality Operations</div>
+      <h1>Your food hall runs on<br>handshakes and spreadsheets.<br><em>It doesn't have to.</em></h1>
       <p class="hero-sub">
-        CoreRail automates vendor settlements, coordinates daily operations, and
-        gives operators and their tenants a single source of truth for money and workflow.
+        CoreRail builds operational software for food halls, coffee shops, and hospitality businesses &mdash; vendor settlements, inventory tracking, shift management, and web presence. Already running in production at real businesses in New Orleans.
       </p>
       <div class="hero-ctas">
-        <a href="https://vendorportal.creativecorerail.com" class="btn btn--sage">
-          Vendor Portal
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+        <a href="#products" class="btn btn--sage">
+          See Our Products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </a>
-        <a href="https://managerportal.creativecorerail.com" class="btn btn--outline">
-          Manager Portal
+        <a href="#contact" class="btn btn--outline">
+          Talk to Us
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
         </a>
       </div>
@@ -518,12 +102,11 @@
   <!-- PILLARS -->
   <section class="pillars">
     <div class="section-inner">
-      <span class="section-label">What CoreRail Does</span>
-      <h2 class="section-title">One building. Many businesses.<br>One system.</h2>
+      <span class="section-label">What We Build</span>
+      <h2 class="section-title">Software that runs where<br>your business runs.</h2>
       <p class="section-desc">
-        Every multi-vendor space runs on settlements, shift handoffs, and trust.
-        CoreRail replaces the spreadsheets and institutional memory with automated,
-        auditable infrastructure.
+        Multi-vendor spaces, multi-location shops, and hospitality operations have problems
+        that generic software doesn't solve. CoreRail builds the specific tools that do.
       </p>
       <div class="pillar-grid">
         <div class="pillar-card">
@@ -532,10 +115,9 @@
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
             </svg>
           </div>
-          <h3>Financial Clarity</h3>
+          <h3>Vendor Settlements</h3>
           <p>
-            Automated vendor settlements pulled from live POS data. Every dollar
-            tracked, every split calculated, every payout auditable.
+            Automated weekly calculations pulled from live Square POS data. Commission splits, delivery fees, daily minimums, linen charges, and adjustments &mdash; calculated, not guessed.
           </p>
         </div>
         <div class="pillar-card">
@@ -544,10 +126,9 @@
               <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
             </svg>
           </div>
-          <h3>Operational Continuity</h3>
+          <h3>Shift &amp; Inventory Management</h3>
           <p>
-            Shift coordination, daily checklists, and handoff protocols that keep
-            a physical operation running. Nothing falls through the cracks.
+            Checklists, shift notes, bar inventory with par-level tracking, supplies counting, and real-time labor cost monitoring. One dashboard for every shift.
           </p>
         </div>
         <div class="pillar-card">
@@ -556,58 +137,99 @@
               <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
             </svg>
           </div>
-          <h3>Multi-Tenant Transparency</h3>
+          <h3>Web Presence &amp; Digital Identity</h3>
           <p>
-            Vendors see exactly what they owe and what they've earned. Operators
-            see the whole picture. Trust through clarity, not promises.
+            Professional websites with vendor pages, event listings, online ordering integration, SEO, and the kind of web presence that matches the quality of your space.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTALS -->
-  <section id="portals">
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
     <div class="section-inner">
-      <span class="section-label">Access Your Portal</span>
-      <h2 class="section-title">Two portals. One system.</h2>
+      <span class="section-label">Our Products</span>
+      <h2 class="section-title">Built for real operations.<br>Running in production.</h2>
       <p class="section-desc">
-        Whether you're a vendor checking your weekly settlement or an operator
-        managing the building, CoreRail has a dedicated workspace for you.
+        Every product below was built to solve a specific problem at a specific business.
+        They're not prototypes. They're in use today.
       </p>
-      <div class="portals-grid">
-        <div class="portal-card">
-          <div class="portal-tag">For Vendors</div>
-          <h3>Vendor Portal</h3>
-          <p>
-            View your settlements, track sales data, review your deal structure,
-            and access payout history — all in one place.
+      <div class="products-grid">
+
+        <!-- Food Hall Manager -->
+        <div class="product-card product-card--featured">
+          <div class="product-tagline" style="color: var(--sage-light);">The operating system for food halls</div>
+          <h3>Food Hall Manager</h3>
+          <p style="color: var(--sage-light);">
+            Vendor payment dashboard that pulls live sales from Square, calculates weekly settlements with configurable commission structures, and gives every vendor a portal to review their numbers. Handles delivery fee splits, daily minimums, linen charges, and CPA-ready Excel exports. Currently managing settlements for 11 vendors at St. Roch Market.
           </p>
-          <a href="https://vendorportal.creativecorerail.com" class="portal-link">
-            Open Vendor Portal
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          <a href="/products/food-hall-manager.html" class="btn btn--outline-light">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-        <div class="portal-card">
-          <div class="portal-tag">For Operators</div>
+
+        <!-- Manager Portal -->
+        <div class="product-card product-card--parchment">
+          <div class="product-tagline">One dashboard. Every shift.</div>
           <h3>Manager Portal</h3>
           <p>
-            Coordinate shifts, manage vendors, and oversee
-            daily operations from a single dashboard.
+            Shift management and inventory tracking for food halls and hospitality venues. Real-time Square sales and labor cost data, bar and supplies inventory with par-level alerts, customizable shift checklists, and project tracking across 25+ vendor locations.
           </p>
-          <a href="https://managerportal.creativecorerail.com" class="portal-link">
-            Open Manager Portal
+          <a href="/products/manager-portal.html" class="btn btn--outline">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Barista Portal -->
+        <div class="product-card product-card--parchment">
+          <div class="product-tagline">Visibility for managers. Clarity for baristas.</div>
+          <h3>Barista Portal</h3>
+          <p>
+            Multi-location operations portal for specialty coffee shops. Inventory counting with supplier order guides, shift checklists by location, recipe and procedure references, and project management &mdash; built for three CR Coffee locations in New Orleans.
+          </p>
+          <a href="/products/barista-portal.html" class="btn btn--outline">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- St. Roch Market Website -->
+        <div class="product-card">
+          <div class="product-tagline">Delivered client work</div>
+          <h3>St. Roch Market Website</h3>
+          <p>
+            Full public-facing website for a 150-year-old New Orleans food hall. Ten individual vendor pages with menus, event listings, private event booking, a blog with eight published articles, and online ordering integration through GetSauce. Schema.org markup, responsive design, Cloudflare deployment.
+          </p>
+          <a href="/products/st-roch-market.html" class="btn btn--outline">
+            View Case Study
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Photo Editor -->
+        <div class="product-card">
+          <div class="product-tagline">Browser-based tool</div>
+          <h3>Photo Editor</h3>
+          <p>
+            Full-featured image editor running entirely in the browser &mdash; no uploads, no server, no dependencies. Curves, histogram, crop with aspect ratios, exposure and color adjustments, sharpen, blur, vignette, and more. 64KB single-file application built with vanilla JavaScript and the Canvas API.
+          </p>
+          <a href="/tools/photo-editor.html" class="btn btn--outline">
+            Try It Live
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
           </a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- WHY CORERAIL -->
-  <section class="why-corerail">
+  <!-- ABOUT / WHY CORERAIL -->
+  <section class="why-corerail" id="about">
     <div class="section-inner">
-      <span class="section-label">Built by Operators</span>
+      <span class="section-label">Built for Operators, by an Operator</span>
       <h2 class="section-title">Why CoreRail?</h2>
       <p class="why-corerail-lead">
         Because it was built inside a running operation.
@@ -620,11 +242,38 @@
           He didn't build CoreRail because he thought it was a good idea. He built it because he was doing vendor settlements in spreadsheets at midnight and knew there had to be a better way. The first version ran inside his own building. Every feature exists because a real operator needed it to exist.
         </p>
         <p>
-          He also runs three CR Coffee locations and a wholesale roasting operation supplying over 100 accounts nationwide. He understands what it means to have multiple revenue streams, multiple teams, and no margin for systems that fail during service.
+          He also runs three CR Coffee locations and a wholesale roasting operation. He understands what it means to have multiple revenue streams, multiple teams, and no margin for systems that fail during service.
         </p>
         <p>
           CoreRail isn't a product built by developers who interviewed operators. It's infrastructure built by someone who still opens the building every morning.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="demo">
+    <div class="section-inner">
+      <span class="section-label">See CoreRail Tools in Action</span>
+      <h2 class="section-title" style="margin-bottom: 32px;">We build things that work.<br>Here's proof.</h2>
+      <div class="demo-card">
+        <div class="demo-content">
+          <h3>Photo Editor</h3>
+          <p>
+            A full image editing application running entirely in your browser. Curves, histogram, crop, color correction, sharpening &mdash; zero dependencies, zero uploads, zero server calls. Open it and drag in a photo.
+          </p>
+          <a href="/tools/photo-editor.html" class="btn btn--outline-light">
+            Open Photo Editor
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
+        </div>
+        <div class="demo-visual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -634,9 +283,26 @@
     <div class="section-inner">
       <span class="section-label">The Bottom Line</span>
       <blockquote>
-        Built because spreadsheet settlements don't scale past three vendors,
-        and institutional memory doesn't survive staff turnover.
+        Running a food hall, restaurant group, or retail chain?<br>
+        You need software built by someone who's done your job &mdash;<br>
+        not someone who read about it.
       </blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <span class="section-label">Let's Talk</span>
+      <h2 class="section-title">Running a food hall, restaurant group, or retail chain?</h2>
+      <p>
+        CoreRail builds custom operational software for businesses like yours.
+        Every product starts with the problems you're already dealing with.
+      </p>
+      <a href="mailto:Kevin@strochmarket.com" class="btn btn--sage">
+        Kevin@strochmarket.com
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+      </a>
     </div>
   </section>
 
@@ -660,14 +326,16 @@
         <span class="footer-copy">&copy; 2026 CoreRail</span>
       </div>
       <div class="footer-links">
-        <a href="https://vendorportal.creativecorerail.com">Vendor Portal</a>
-        <a href="https://managerportal.creativecorerail.com">Manager Portal</a>
+        <a href="/products/food-hall-manager.html">Food Hall Manager</a>
+        <a href="/products/manager-portal.html">Manager Portal</a>
+        <a href="/products/barista-portal.html">Barista Portal</a>
+        <a href="/products/st-roch-market.html">St. Roch Market</a>
+        <a href="/tools/photo-editor.html">Photo Editor</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Navbar scroll shadow
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 10);
