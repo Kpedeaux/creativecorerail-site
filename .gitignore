@@ -1,0 +1,45 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.fuse_hidden*
+.vscode/
+.idea/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Large/raw media — keep out of the repo, host on R2/B2 if served
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.raw
+*.cr2
+*.nef
+*.arw
+*.psd
+*.ai
+*.zip
+*.tar
+*.tar.gz
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
