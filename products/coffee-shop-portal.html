@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Shop Portal — CoreRail</title>
+  <meta name="description" content="Coffee Shop Portal by CoreRail — the multi-tenant SaaS platform for independent coffee shops. Schedules, checklists, recipes, team messaging, and inventory in one installable PWA. Per-tenant database isolation, custom branding, mobile-first.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 120 120" fill="none">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+        <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+      </svg>
+      <div class="nav-wordmark">CORE<span>RAIL</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/#products" class="nav-link">Products</a>
+      <a href="/#about" class="nav-link">About</a>
+      <a href="/tools/photo-editor.html" class="nav-link">Tools</a>
+      <a href="/#contact" class="nav-link nav-link--primary">Get in Touch</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <a href="/#products" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All Products</a>
+      <div class="hero-badge">Flagship Product &middot; Multi-Tenant SaaS</div>
+      <h1>Coffee-shop operations,<br><em>unified.</em></h1>
+      <p>The Coffee Shop Portal is CoreRail's flagship SaaS product for independent coffee shops. Schedules with shift swaps and time-off, opening and closing checklists, team messaging, recipes and training, inventory with supplier-ready order sheets, and push notifications &mdash; one portal that installs on your team's phones. Per-tenant database isolation. Custom logo and color per shop. Mobile-first.</p>
+      <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="https://coffeeshop.creativecorerail.com" class="btn btn--sage" target="_blank" rel="noopener">
+          Launch App
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+        </a>
+        <a href="mailto:Kevin@strochmarket.com?subject=Coffee%20Shop%20Portal%20demo%20request&body=Hi%2C%0A%0AI%20run%20a%20coffee%20shop%20and%20I%27d%20like%20to%20see%20the%20Coffee%20Shop%20Portal%20in%20action.%0A%0AShop%20name%3A%0ACity%20%2F%20state%3A%0ANumber%20of%20locations%3A%0ATeam%20size%3A%0ABest%20time%20to%20talk%3A%0A%0AThanks." class="btn btn--outline">
+          Book a 20-minute Demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-solution">
+    <div class="section-inner">
+      <div class="ps-grid">
+        <div class="ps-block">
+          <h3>The Problem</h3>
+          <p>Most "shop management" tools are either bolted onto a POS you didn't want, or they're enterprise-grade with enterprise pricing. So you're running the shop out of a group text, a schedule spreadsheet, a clipboard, a training binder on a shelf, and a half-used POS add-on. Staff don't know the recipe updates. The opening barista doesn't know what the closing shift noted. Swap requests get lost. Oat milk runs out on Monday.</p>
+        </div>
+        <div class="ps-block">
+          <h3>The Solution</h3>
+          <p>One tool. One login. One system your team actually keeps on their home screen. The Coffee Shop Portal replaces the spreadsheet, the group text, the clipboard, the binder, and the add-on &mdash; with a purpose-built portal designed in-house against a real shop floor. Multi-tenant by architecture: every shop gets its own isolated database, its own branding, and its own staff roster, behind the same production-hardened platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="section-inner">
+      <span class="section-label">Modules</span>
+      <h2 class="section-title">Everything the opening shift needs.</h2>
+      <p class="section-desc">Six modules, one login. Owner, manager, lead, barista &mdash; every role sees exactly what they should and nothing they shouldn't.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Schedules &amp; Swaps</h3>
+          <p>Publish the week in minutes. Reusable templates and week-to-week copying. Staff post recurring availability and date-specific overrides. Time-off requests with manager approval. Shift swap requests with accept, counter-offer, and manager review. Total hours tracked per person per week.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Opening &amp; Closing Checklists</h3>
+          <p>Photo-verified tasks for every shift. Opening, mid-shift, and closing lists customized per location. Each item tracks completion by user and timestamp. Progress bars show shift completion in real time. Admin-editable structure. You see what got done &mdash; and what didn't &mdash; without driving to the shop.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Team Messaging &amp; Notes</h3>
+          <p>Direct messages, location group chats, managers-only channels, and all-staff announcements with ack-required reads. Pinned messages for important updates. Shift notes searchable across date, shift type, location, and user. Full shift-to-shift handoff built in. No more "did you see my text?" at 6 a.m.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Recipes &amp; Training</h3>
+          <p>Drink specs, latte-art standards, and opening procedures &mdash; with photos &mdash; always in sync across every location. Searchable library organized by category. Expandable cards with ingredients and step-by-step instructions. Training binder sections for cash handling, daily expectations, and FAQ.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Inventory &amp; Ordering</h3>
+          <p>Counts against par with quick-count and full-count modes. Products tracked with par levels, unit types, prices, item numbers, and brands. Below-par alerts flag what needs ordering. Supplier directory with contact info, order guides, and deadlines. Session merging for multi-staff counts.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Push Notifications</h3>
+          <p>Installs as an app on staff phones via the Web Push API. Checklist alerts at open, shift-swap requests to the covering barista, ack-required notes to leads, schedule publication to the whole team. Works like a native app from the home screen &mdash; no App Store, no IT department, no APK.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roles-section">
+    <div class="section-inner">
+      <h2 class="section-title">Built for Every Role</h2>
+      <p class="section-desc">Owner, manager, lead, barista &mdash; one portal, permissioned correctly.</p>
+      <div class="roles-grid">
+        <div class="role-card">
+          <h3>Barista</h3>
+          <p>Checklists, shift notes, recipes, and the training binder. Pull up procedure cards during service. See what the last shift noted. Post availability. Request time off. Ask for a swap. Stay aligned without asking.</p>
+        </div>
+        <div class="role-card">
+          <h3>Lead / Manager</h3>
+          <p>Everything baristas have, plus full inventory management, schedule publishing, swap approvals, and team messaging. Count against par. Review below-par alerts. Pull supplier contact info and order right away. Merge inventory sessions with other leads.</p>
+        </div>
+        <div class="role-card">
+          <h3>Owner</h3>
+          <p>Everything plus product, supplier, checklist, recipe, and user management. Create accounts and assign roles. Set pricing and par levels. Configure push notifications. Upload your logo and primary color &mdash; staff see your shop, not a generic SaaS. Export reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" style="background: var(--ivory);">
+    <div class="section-inner">
+      <span class="section-label">Architecture</span>
+      <h2 class="section-title">Built like infrastructure, not a side project.</h2>
+      <p class="section-desc">Because your shop can't afford software that fails during service.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Per-Tenant Database Isolation</h3>
+          <p>Every shop gets its own SQLite file. Your staff list, your schedule, your inventory counts &mdash; all physically separated from every other tenant. Nothing shared, nothing mixed. Backups are per-tenant, encrypted, and scheduled.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Your Brand, Your Logo</h3>
+          <p>Upload a logo and a primary color and your staff sees your shop, not a generic SaaS. The PWA installs to home screens with your icon. Tenant-scoped manifest. Opens like a native app that belongs to you.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Production-Grade Security</h3>
+          <p>Scrypt password hashing. AES-256-GCM encryption for POS credentials. Server-side sessions with httpOnly Secure SameSite=Lax cookies. CSRF double-submit protection. Migration runner verifies SHA-256 checksums on every applied migration.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Works on the Phone They Already Have</h3>
+          <p>Mobile-first. Installs as a PWA. No App Store, no IT department, no "download this APK." Just a link. Service workers cache what matters so the opening barista isn't stuck waiting on a spinner at 5:30 a.m.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-strip">
+    <span class="section-label">Technology</span>
+    <div class="tech-tags">
+      <span class="tech-tag">Node 20 LTS</span>
+      <span class="tech-tag">Express 5</span>
+      <span class="tech-tag">TypeScript (strict)</span>
+      <span class="tech-tag">React 19</span>
+      <span class="tech-tag">Vite</span>
+      <span class="tech-tag">Tailwind</span>
+      <span class="tech-tag">SQLite + Kysely</span>
+      <span class="tech-tag">Multi-Tenant</span>
+      <span class="tech-tag">Scrypt Auth</span>
+      <span class="tech-tag">AES-256-GCM</span>
+      <span class="tech-tag">Web Push API</span>
+      <span class="tech-tag">Service Workers</span>
+      <span class="tech-tag">PWA</span>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <span class="section-label">Take It For a Drive</span>
+      <h2 class="section-title">See it on your own shop's workflow.</h2>
+      <p>Twenty minutes on a call. We spin up a tenant for your shop, drop in your staff list, and walk a real Monday morning through it. No credit card, no trial countdown. If it's not a fit, you've lost nothing.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px;">
+        <a href="mailto:Kevin@strochmarket.com?subject=Coffee%20Shop%20Portal%20demo%20request&body=Hi%2C%0A%0AI%20run%20a%20coffee%20shop%20and%20I%27d%20like%20to%20see%20the%20Coffee%20Shop%20Portal%20in%20action.%0A%0AShop%20name%3A%0ACity%20%2F%20state%3A%0ANumber%20of%20locations%3A%0ATeam%20size%3A%0ABest%20time%20to%20talk%3A%0A%0AThanks." class="btn btn--sage">
+          Book a Demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </a>
+        <a href="https://coffeeshop.creativecorerail.com" class="btn btn--outline" target="_blank" rel="noopener">
+          Visit the Portal
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
+          <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
+          <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        </svg>
+        <div class="footer-wordmark">CORE<span>RAIL</span></div>
+        <span class="footer-copy">&copy; 2026 CoreRail</span>
+      </div>
+      <div class="footer-links">
+        <a href="/products/coffee-shop-portal.html">Coffee Shop Portal</a>
+        <a href="/products/food-hall-manager.html">Food Hall Manager</a>
+        <a href="/products/manager-portal.html">Manager Portal</a>
+        <a href="/products/st-roch-market.html">St. Roch Market</a>
+        <a href="/products/cr-coffee.html">CR Coffee</a>
+        <a href="/tools/photo-editor.html">Photo Editor</a>
+        <a href="/tools/word-processor.html">WordCraft</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+</body>
+</html>

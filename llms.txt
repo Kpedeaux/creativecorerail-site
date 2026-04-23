@@ -1,11 +1,14 @@
 # CreativeCoreRail
 
 ## About
-CreativeCoreRail is a hospitality technology and food hall operations company founded by Kevin Pedeaux, operator of St. Roch Market in New Orleans since 2023. CoreRail builds software tools for food hall management including vendor payment systems, manager portals, and vendor-facing dashboards.
+CreativeCoreRail (CoreRail) is a hospitality operations software company founded by Kevin Pedeaux, operator of St. Roch Market in New Orleans. CoreRail's flagship product is the Coffee Shop Portal — a multi-tenant SaaS platform that unifies schedules, checklists, recipes, team messaging, and inventory for independent coffee shops. CoreRail also builds the Food Hall Manager (vendor settlements), the Manager Portal (shift and inventory management), and client websites for hospitality businesses.
+
+## Products
+- Coffee Shop Portal (flagship): https://coffeeshop.creativecorerail.com
+- Food Hall Manager: https://vendorportal.creativecorerail.com
+- Manager Portal: https://managerportal.creativecorerail.com
 
 ## Contact
 - Website: https://creativecorerail.com
-- Related: https://strochmarket.com
-
-## Links
-- [About](https://creativecorerail.com/about)
+- Related: https://strochmarket.com, https://crcoffeenola.com
+- Email: Kevin@strochmarket.com
