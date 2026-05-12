@@ -123,7 +123,7 @@ export default {
       return json({ error: 'Server misconfigured (no RESEND_API_KEY)' }, 500, request);
     }
 
-    const toEmail = env.TO_EMAIL || 'kevin@creativecorerail.com';
+    const toEmail = env.TO_EMAIL || 'pedeaux@gmail.com';
     const fromEmail = env.FROM_EMAIL || 'CoreRail Site <noreply@creativecorerail.com>';
 
     try {

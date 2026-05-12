@@ -12,7 +12,11 @@ zone_name = "creativecorerail.com"
 
 # Non-secret env vars. Override per-environment as needed.
 [vars]
-TO_EMAIL = "kevin@creativecorerail.com"
+# TO_EMAIL receives submissions. Change to a custom-domain mailbox later if you set one up.
+TO_EMAIL = "pedeaux@gmail.com"
+# FROM_EMAIL is the sender envelope. Resend requires the sending domain to be DNS-verified.
+# If you haven't verified creativecorerail.com in Resend yet, change this to "onboarding@resend.dev"
+# while you set up DNS; it works immediately but reads as less professional.
 FROM_EMAIL = "CoreRail Site <noreply@creativecorerail.com>"
 
 # Secrets (set via `wrangler secret put RESEND_API_KEY`):

@@ -1,7 +1,7 @@
 # CoreRail
 
 ## About
-CoreRail (creativecorerail.com) is a hospitality operations software company founded by Kevin Pedeaux. CoreRail builds operational software for food halls, coffee shops, and multi-vendor hospitality businesses — battle-tested daily inside two operations the founder runs himself: St. Roch Market (a 150-year-old food hall in New Orleans with 11 vendors) and CR Coffee (four New Orleans coffee shops plus a wholesale roastery). The software is dogfood, not testimonial.
+CoreRail (creativecorerail.com) is a hospitality operations software company founded by Kevin Pedeaux. CoreRail builds operational software for food halls, coffee shops, and multi-vendor hospitality businesses — battle-tested daily inside two operations the founder runs himself: St. Roch Market (a 150-year-old food hall in New Orleans with 11 vendors) and CR Coffee (four New Orleans coffee shops plus a wholesale roastery). The software runs in the same buildings the founder opens every morning.
 
 ## Site map
 - Home: https://creativecorerail.com/
