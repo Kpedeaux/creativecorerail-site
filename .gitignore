@@ -48,3 +48,8 @@ KevinatComputer.jpg
 TRANSFORMATION_BLUEPRINT.md
 KevinatComputer.jpg
 magazine-dusk-exterior.jpg
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
