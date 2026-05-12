@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Tools — CoreRail</title>
+  <meta name="description" content="Browser-based tools by CoreRail: a full photo editor and a word processor, both running entirely in your browser with zero uploads and zero dependencies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+      </svg>
+      <div class="nav-wordmark">CORE<span>RAIL</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/work/" class="nav-link">Work</a>
+      <a href="/products/" class="nav-link">Products</a>
+      <a href="/tools/" class="nav-link">Tools</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/contact.html" class="nav-link nav-link--primary">Start a conversation</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="eyebrow reveal">Tools</span>
+      <h1 class="reveal" data-delay="1">Browser-based tools.<br><em>No uploads. No accounts.</em></h1>
+      <p class="page-hero-lede reveal" data-delay="2">
+        Single-file vanilla-JavaScript tools that run entirely in your browser. No server. No tracking. No dependencies. Examples of what's possible when the problem doesn't require a backend.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--paper); padding-top: 0;">
+    <div class="section-inner">
+      <div class="tools-grid">
+        <a href="/tools/photo-editor.html" class="tool-card reveal">
+          <div class="product-tagline">Browser-based · 64KB single file</div>
+          <h3>Photo Editor</h3>
+          <p>Full-featured image editor running entirely in the browser. Curves, histogram, crop with aspect ratios, exposure and color adjustments, sharpen, blur, vignette, and more. Built with vanilla JavaScript and the Canvas API.</p>
+          <span class="text-link">
+            Open the editor
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </span>
+        </a>
+        <a href="/tools/word-processor.html" class="tool-card reveal" data-delay="1">
+          <div class="product-tagline">Browser-based · single file</div>
+          <h3>WordCraft</h3>
+          <p>A complete word processor in the browser. Rich text formatting, document management, and file export — all client-side. No accounts, no cloud, no dependencies.</p>
+          <span class="text-link">
+            Open WordCraft
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="positioning">
+    <div class="section-inner">
+      <span class="section-label">Why these exist</span>
+      <blockquote class="reveal">
+        Most web tools that need to "just work" don't need a server.<br>
+        When the constraint is right, vanilla JavaScript is still the fastest, cleanest answer.
+      </blockquote>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        </svg>
+        <div class="footer-wordmark">CORE<span>RAIL</span></div>
+        <span class="footer-copy">&copy; 2026 CoreRail · New Orleans</span>
+      </div>
+      <div class="footer-links">
+        <a href="/work/">Work</a>
+        <a href="/products/">Products</a>
+        <a href="/tools/">Tools</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/motion.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+name = "corerail-contact"
+main = "contact-worker.js"
+compatibility_date = "2025-05-01"
+
+# Route mapped on creativecorerail.com — handles the contact form POST.
+# Add this route in the Cloudflare dashboard OR via:
+#   wrangler deploy
+# after configuring the route below.
+[[routes]]
+pattern = "creativecorerail.com/api/contact"
+zone_name = "creativecorerail.com"
+
+# Non-secret env vars. Override per-environment as needed.
+[vars]
+TO_EMAIL = "kevin@creativecorerail.com"
+FROM_EMAIL = "CoreRail Site <noreply@creativecorerail.com>"
+
+# Secrets (set via `wrangler secret put RESEND_API_KEY`):
+#   RESEND_API_KEY — required, get from https://resend.com after verifying creativecorerail.com

@@ -1,14 +1,29 @@
-# CreativeCoreRail
+# CoreRail
 
 ## About
-CreativeCoreRail (CoreRail) is a hospitality operations software company founded by Kevin Pedeaux, operator of St. Roch Market in New Orleans. CoreRail's flagship product is the Coffee Shop Portal — a multi-tenant SaaS platform that unifies schedules, checklists, recipes, team messaging, and inventory for independent coffee shops. CoreRail also builds the Food Hall Manager (vendor settlements), the Manager Portal (shift and inventory management), and client websites for hospitality businesses.
+CoreRail (creativecorerail.com) is a hospitality operations software company founded by Kevin Pedeaux. CoreRail builds operational software for food halls, coffee shops, and multi-vendor hospitality businesses — battle-tested daily inside two operations the founder runs himself: St. Roch Market (a 150-year-old food hall in New Orleans with 11 vendors) and CR Coffee (four New Orleans coffee shops plus a wholesale roastery). The software is dogfood, not testimonial.
+
+## Site map
+- Home: https://creativecorerail.com/
+- Work (case studies): https://creativecorerail.com/work/
+  - St. Roch Market case study: https://creativecorerail.com/work/st-roch-market.html
+  - CR Coffee case study: https://creativecorerail.com/work/cr-coffee.html
+- Products: https://creativecorerail.com/products/
+- Tools: https://creativecorerail.com/tools/
+- About: https://creativecorerail.com/about.html
+- Contact: https://creativecorerail.com/contact.html
 
 ## Products
-- Coffee Shop Portal (flagship): https://coffeeshop.creativecorerail.com
-- Food Hall Manager: https://vendorportal.creativecorerail.com
-- Manager Portal: https://managerportal.creativecorerail.com
+- Coffee Shop Portal (flagship, multi-tenant SaaS): https://coffeeshop.creativecorerail.com
+- Food Hall Manager (vendor settlements): https://vendorportal.creativecorerail.com
+- Manager Portal (shift + inventory): https://managerportal.creativecorerail.com
+- St. Roch Market website: https://strochmarket.com
+- CR Coffee website: https://crcoffeenola.com
+
+## Browser-based tools
+- Photo Editor: https://creativecorerail.com/tools/photo-editor.html
+- WordCraft (word processor): https://creativecorerail.com/tools/word-processor.html
 
 ## Contact
-- Website: https://creativecorerail.com
-- Related: https://strochmarket.com, https://crcoffeenola.com
-- Email: Kevin@strochmarket.com
+- Email: kevin@creativecorerail.com
+- Contact form: https://creativecorerail.com/contact.html

@@ -8,7 +8,7 @@
   <meta name="description" content="CoreRail built a complete 28-page website for St. Roch Market, a historic 150-year-old New Orleans food hall with 10 vendors, events, and online ordering integration.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -30,16 +30,17 @@
       <div class="nav-wordmark">CORE<span>RAIL</span></div>
     </a>
     <div class="nav-links">
-      <a href="/#products" class="nav-link">Products</a>
-      <a href="/#about" class="nav-link">About</a>
-      <a href="/tools/photo-editor.html" class="nav-link">Tools</a>
-      <a href="/#contact" class="nav-link nav-link--primary">Get in Touch</a>
+      <a href="/work/" class="nav-link">Work</a>
+      <a href="/products/" class="nav-link">Products</a>
+      <a href="/tools/" class="nav-link">Tools</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/contact.html" class="nav-link nav-link--primary">Start a conversation</a>
     </div>
   </nav>
 
   <section class="page-hero">
     <div class="page-hero-inner">
-      <a href="/#products" class="back-link">
+      <a href="/products/" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         All Products
       </a>
@@ -150,7 +151,7 @@
       <span class="section-label">Let's Talk</span>
       <h2 class="section-title">Need a web presence that matches your space?</h2>
       <p>CoreRail builds websites for food halls, markets, and hospitality businesses. Not templates. Purpose-built sites.</p>
-      <a href="mailto:Kevin@strochmarket.com" class="btn btn--sage">
+      <a href="/contact.html" class="btn btn--sage">
         Get in Touch
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
       </a>
@@ -193,5 +194,6 @@
       nav.classList.toggle('scrolled', window.scrollY > 10);
     });
   </script>
+  <script src="/js/motion.js" defer></script>
 </body>
 </html>
