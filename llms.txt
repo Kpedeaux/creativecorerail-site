@@ -9,13 +9,12 @@ CoreRail (creativecorerail.com) is Kevin Pedeaux, a New Orleans operator who bui
   - St. Roch Market settlements case study: https://creativecorerail.com/work/st-roch-market.html
   - CR Coffee portal case study: https://creativecorerail.com/work/cr-coffee.html
   - Crescent Room booking case study: https://creativecorerail.com/work/crescent-room.html
-- Products: https://creativecorerail.com/products/
 - Tools (free): https://creativecorerail.com/tools/
 - About: https://creativecorerail.com/about.html
 - Contact: https://creativecorerail.com/contact.html
 
 ## Products
-- Coffee Shop Portal (schedules, checklists, recipes, messaging, inventory, bookings): https://creativecorerail.com/products/coffee-shop-portal.html
+- Coffee Shop Portal, the SaaS coffee shops can sign up for today. Live app: https://coffeeshop.creativecorerail.com | Details: https://creativecorerail.com/products/coffee-shop-portal.html
 - Food Hall Manager (vendor settlements from live Square data): https://creativecorerail.com/products/food-hall-manager.html
 - Manager Portal (shift handoffs, bar inventory, sales-based ordering): https://creativecorerail.com/products/manager-portal.html
 
