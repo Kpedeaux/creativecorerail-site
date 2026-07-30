@@ -7,32 +7,32 @@
 
 /* ---------- Fonts (self-hosted) ---------- */
 @font-face {
-  font-family: 'Outfit';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/outfit-v15-latin-regular.woff2') format('woff2');
+  src: url('/fonts/ibm-plex-sans-v23-latin-regular.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Outfit';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/outfit-v15-latin-500.woff2') format('woff2');
+  src: url('/fonts/ibm-plex-sans-v23-latin-500.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Outfit';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/outfit-v15-latin-600.woff2') format('woff2');
+  src: url('/fonts/ibm-plex-sans-v23-latin-600.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Outfit';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/outfit-v15-latin-700.woff2') format('woff2');
+  src: url('/fonts/ibm-plex-sans-v23-latin-700.woff2') format('woff2');
 }
 @font-face {
   font-family: 'DM Mono';
@@ -63,7 +63,7 @@
   --copper: #B8860B;
   --copper-deep: #8F6A08;
 
-  --font-body: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'DM Mono', ui-monospace, 'Cascadia Mono', monospace;
 
   --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px;
@@ -91,8 +91,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 h1, h2, h3, h4 { color: var(--ink); line-height: 1.15; font-weight: 700; }
 
-h1 { font-size: clamp(33px, 5vw, 52px); letter-spacing: -0.025em; }
-h2 { font-size: clamp(24px, 3.2vw, 34px); letter-spacing: -0.02em; font-weight: 650; }
+h1 { font-size: clamp(33px, 5vw, 52px); letter-spacing: -0.015em; }
+h2 { font-size: clamp(24px, 3.2vw, 34px); letter-spacing: -0.012em; font-weight: 650; }
 h3 { font-size: 19px; letter-spacing: -0.01em; font-weight: 600; line-height: 1.3; }
 
 p { max-width: 68ch; }
@@ -331,6 +331,8 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .proof-cell { border-left: 2px solid var(--sage); padding-left: var(--s3); }
 .proof-name { font-weight: 650; color: var(--ink); font-size: 17px; }
+.proof-name a { color: var(--ink); border-bottom: 1px solid var(--sage-light); }
+.proof-name a:hover { color: var(--sage-deep); border-bottom-color: var(--sage-deep); }
 .proof-meta { font-size: 14.5px; color: var(--slate); margin-top: 2px; }
 .proof-note { margin-top: var(--s3); font-size: 15px; color: var(--charcoal); }
 
