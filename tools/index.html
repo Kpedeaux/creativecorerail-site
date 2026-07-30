@@ -4,22 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>Tools — CoreRail</title>
-  <meta name="description" content="Browser-based tools by CoreRail: a full photo editor and a word processor, both running entirely in your browser with zero uploads and zero dependencies.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Free tools | CoreRail</title>
+  <meta name="description" content="Free browser tools built by CoreRail: the photo editor that replaced a Photoshop subscription, and a single-file word processor. No uploads, no accounts, no tracking.">
+  <meta property="og:title" content="Free tools | CoreRail">
+  <meta property="og:description" content="Free browser tools: a photo editor and a word processor. No uploads, no accounts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://creativecorerail.com/tools/">
+  <meta property="og:image" content="https://creativecorerail.com/images/og-image.jpg">
+  <link rel="preload" href="/fonts/outfit-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/outfit-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
   <nav class="nav" id="nav">
-    <a href="/" class="nav-logo">
-      <svg width="28" height="28" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+    <a href="/" class="nav-logo" aria-label="CoreRail home">
+      <svg width="26" height="26" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+        <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
       </svg>
       <div class="nav-wordmark">CORE<span>RAIL</span></div>
     </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <div class="nav-links">
       <a href="/work/" class="nav-link">Work</a>
       <a href="/products/" class="nav-link">Products</a>
@@ -32,56 +42,60 @@
   <section class="page-hero">
     <div class="page-hero-inner">
       <span class="eyebrow reveal">Tools</span>
-      <h1 class="reveal" data-delay="1">Browser-based tools.<br><em>No uploads. No accounts.</em></h1>
+      <h1 class="reveal" data-delay="1">Free tools. No uploads, no accounts.</h1>
       <p class="page-hero-lede reveal" data-delay="2">
-        Single-file vanilla-JavaScript tools that run entirely in your browser. No server. No tracking. No dependencies. Examples of what's possible when the problem doesn't require a backend.
+        Both run entirely in your browser. Your files never leave your computer, and there's nothing to sign up for. Use them as much as you want.
       </p>
     </div>
   </section>
 
-  <section style="background: var(--paper); padding-top: 0;">
-    <div class="section-inner">
+  <section class="band">
+    <div class="section-inner" style="padding-top: 48px;">
       <div class="tools-grid">
         <a href="/tools/photo-editor.html" class="tool-card reveal">
-          <div class="product-tagline">Browser-based · 64KB single file</div>
+          <div class="product-tagline">Replaced my Photoshop subscription</div>
           <h3>Photo Editor</h3>
-          <p>Full-featured image editor running entirely in the browser. Curves, histogram, crop with aspect ratios, exposure and color adjustments, sharpen, blur, vignette, and more. Built with vanilla JavaScript and the Canvas API.</p>
-          <span class="text-link">
-            Open the editor
+          <p>I pay Adobe nothing anymore. Every photo on my sites gets edited here: crop, curves, exposure, color, sharpening. It handles all of it in the browser.</p>
+          <span class="text-link">Open the editor
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
           </span>
         </a>
         <a href="/tools/word-processor.html" class="tool-card reveal" data-delay="1">
-          <div class="product-tagline">Browser-based · single file</div>
-          <h3>WordCraft</h3>
-          <p>A complete word processor in the browser. Rich text formatting, document management, and file export — all client-side. No accounts, no cloud, no dependencies.</p>
-          <span class="text-link">
-            Open WordCraft
+          <div class="product-tagline">One file, whole word processor</div>
+          <h3>Word Processor</h3>
+          <p>Rich text, document management, and export, all client-side. No cloud, no account, no subscription.</p>
+          <span class="text-link">Open the word processor
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
           </span>
         </a>
       </div>
+      <p style="margin-top: 48px;">These exist because I'd rather write a tool once than rent it forever. The same thinking applies to <a href="/work/crescent-room.html" class="text-link">the subscriptions I've deleted</a> for my shops.</p>
     </div>
   </section>
 
-  <section class="positioning">
+  <section class="cta-section">
     <div class="section-inner">
-      <span class="section-label">Why these exist</span>
-      <blockquote class="reveal">
-        Most web tools that need to "just work" don't need a server.<br>
-        When the constraint is right, vanilla JavaScript is still the fastest, cleanest answer.
-      </blockquote>
+      <h2 class="reveal">Need a tool like this for your business?</h2>
+      <p class="reveal" data-delay="1">If a small tool would kill a subscription or a headache for you, tell me about it.</p>
+      <a href="/contact.html" class="btn btn--copper reveal" data-delay="2">
+        Start a conversation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p class="cta-proof reveal" data-delay="2">Both tools above are used daily in my own businesses.</p>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <svg width="20" height="20" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        <svg width="18" height="18" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
         </svg>
         <div class="footer-wordmark">CORE<span>RAIL</span></div>
-        <span class="footer-copy">&copy; 2026 CoreRail · New Orleans</span>
+        <span class="footer-copy">&copy; 2026 CoreRail &middot; New Orleans &middot; running in production every day</span>
       </div>
       <div class="footer-links">
         <a href="/work/">Work</a>

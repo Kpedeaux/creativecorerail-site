@@ -4,22 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>Work — CoreRail case studies</title>
-  <meta name="description" content="Case studies from CoreRail. Two operations, two stories: St. Roch Market and CR Coffee. Battle-tested in the same buildings they were built in.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Work | Everything CoreRail has shipped</title>
+  <meta name="description" content="Software running real New Orleans businesses, client websites that update themselves, live demos, games, and free tools. All of it real, most of it open to try.">
+  <meta property="og:title" content="Work | Everything CoreRail has shipped">
+  <meta property="og:description" content="Software running real businesses, client sites, live demos, and free tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://creativecorerail.com/work/">
+  <meta property="og:image" content="https://creativecorerail.com/images/og-image.jpg">
+  <link rel="preload" href="/fonts/outfit-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/outfit-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
   <nav class="nav" id="nav">
-    <a href="/" class="nav-logo">
-      <svg width="28" height="28" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+    <a href="/" class="nav-logo" aria-label="CoreRail home">
+      <svg width="26" height="26" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+        <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
       </svg>
       <div class="nav-wordmark">CORE<span>RAIL</span></div>
     </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <div class="nav-links">
       <a href="/work/" class="nav-link">Work</a>
       <a href="/products/" class="nav-link">Products</a>
@@ -32,40 +42,54 @@
   <section class="page-hero">
     <div class="page-hero-inner">
       <span class="eyebrow reveal">The work</span>
-      <h1 class="reveal" data-delay="1">Two operations.<br><em>Two stories.</em></h1>
+      <h1 class="reveal" data-delay="1">Everything I've shipped.</h1>
       <p class="page-hero-lede reveal" data-delay="2">
-        CoreRail's two longest-running deployments are both buildings the founder operates. That's not a marketing claim — it's the point. Every feature here exists because a real operator needed it to exist during service.
+        Software my own businesses run on, client sites that update themselves, live demos, games, and free tools. All of it is real, and most of it you can open right now.
       </p>
     </div>
   </section>
 
-  <section class="work-index" style="padding-top: 0;">
+  <!-- CASE STUDIES -->
+  <section class="band">
     <div class="section-inner">
+      <h2 class="reveal">Three case studies</h2>
+      <p class="lead reveal" data-delay="1">The deep stories: what was broken, what I built, and what changed.</p>
       <div class="work-grid">
-        <a href="/work/st-roch-market.html" class="work-card reveal">
+        <a href="/work/st-roch-market.html" class="work-card reveal" data-delay="1">
           <div class="work-card-image">
-            <img src="/images/work/st-roch-market-interior.jpg" alt="Interior of St. Roch Market, a 150-year-old food hall in New Orleans.">
+            <img src="/images/work/st-roch-market-interior.jpg" alt="Interior of St. Roch Market, a New Orleans food hall." loading="lazy">
           </div>
-          <div>
-            <div class="work-card-meta">Case study · St. Roch Market</div>
-            <h3>From midnight spreadsheets to push-button settlements at a 150-year-old food hall.</h3>
-            <p>Eleven independent vendors, one bar, daily handoffs, weekly settlements. We replaced six hours of manual reconciliation with a vendor portal and a CPA-ready export — built inside the building it runs.</p>
-            <span class="text-link">
-              Read the case study
+          <div class="work-card-body">
+            <div class="work-card-meta">St. Roch Market</div>
+            <h3>Vendor settlements went from six hours a week to about ten minutes.</h3>
+            <p>Eleven vendors, live Square data, and a CPA-ready export every week.</p>
+            <span class="text-link">Read the case study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </span>
           </div>
         </a>
-        <a href="/work/cr-coffee.html" class="work-card reveal" data-delay="1">
+        <a href="/work/cr-coffee.html" class="work-card reveal" data-delay="2">
           <div class="work-card-image">
-            <img src="/images/work/cr-coffee-magazine-dusk-thumb.jpg" alt="CR Coffee on Magazine Street, New Orleans, at dusk.">
+            <img src="/images/products/portal-schedule.jpg" alt="The Coffee Shop Portal schedule view with a published week of shifts." loading="lazy">
           </div>
-          <div>
-            <div class="work-card-meta">Case study · CR Coffee</div>
-            <h3>Running four coffee shop locations on one app.</h3>
-            <p>Schedules, checklists, recipes, messaging, and inventory across four New Orleans coffee shops — all running on the Coffee Shop Portal.</p>
-            <span class="text-link">
-              Read the case study
+          <div class="work-card-body">
+            <div class="work-card-meta">CR Coffee</div>
+            <h3>Four coffee shops run on one app instead of a group text.</h3>
+            <p>Schedules, checklists, recipes, messaging, and inventory for the whole team.</p>
+            <span class="text-link">Read the case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/work/crescent-room.html" class="work-card reveal" data-delay="3">
+          <div class="work-card-image">
+            <img src="/images/work/crescent-room-booking.jpg" alt="The public booking page for the Crescent Room at CR Coffee." loading="lazy">
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-meta">Crescent Room</div>
+            <h3>The booking system that ended a monthly software fee.</h3>
+            <p>Customers book and pay online, and the baristas on shift know instantly.</p>
+            <span class="text-link">Read the case study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </span>
           </div>
@@ -74,26 +98,170 @@
     </div>
   </section>
 
+  <!-- ARCHIVE -->
+  <section class="band band--parchment">
+    <div class="section-inner">
+      <h2 class="reveal">The full shelf</h2>
+      <p class="lead reveal" data-delay="1">Everything, including the demos and the small stuff. If it says live, you can open it.</p>
+
+      <div class="archive-group reveal">
+        <h3>Business &amp; client sites</h3>
+        <div class="archive-table">
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">St. Roch Market</span>
+            <span class="archive-desc">Food hall site: 11 vendor pages, events, and news stories that become Google Business Profile posts.</span>
+            <a class="archive-link" href="https://strochmarket.com" target="_blank" rel="noopener">visit</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">CR Coffee</span>
+            <span class="archive-desc">Coffee shop site: locations, drinks, rewards, and social posts turned into news stories.</span>
+            <a class="archive-link" href="https://crcoffeenola.com" target="_blank" rel="noopener">visit</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Lily Cummings</span>
+            <span class="archive-desc">Journalist portfolio that finds and adds her new articles by itself every morning.</span>
+            <a class="archive-link" href="https://lilycummings.net" target="_blank" rel="noopener">visit</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">kevinpedeaux.com</span>
+            <span class="archive-desc">My personal site. Self-hosted fonts, one page, loads in under a second.</span>
+            <a class="archive-link" href="https://kevinpedeaux.com" target="_blank" rel="noopener">visit</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Preview</span>
+            <span class="archive-name">Independence St.</span>
+            <span class="archive-desc">Tarot studio site with an Almanac that turns her YouTube videos into posts automatically.</span>
+            <a class="archive-link" href="https://jamie.creativecorerail.com" target="_blank" rel="noopener">visit</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Soon</span>
+            <span class="archive-name">Seelos Church</span>
+            <span class="archive-desc">Volunteer-built parish site for the Bywater church, awaiting launch.</span>
+            <span class="archive-link">in progress</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-group reveal">
+        <h3>Concept demos, built to show what's possible</h3>
+        <div class="archive-table">
+          <div class="archive-row">
+            <span class="archive-year">Demo</span>
+            <span class="archive-name">Perry Capital</span>
+            <span class="archive-desc">One-page site for a global macro advisory firm.</span>
+            <a class="archive-link" href="https://jimperry.creativecorerail.com" target="_blank" rel="noopener">visit</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Demo</span>
+            <span class="archive-name">Decatur Espresso</span>
+            <span class="archive-desc">Wholesale coffee site with a working 266-item ordering catalog.</span>
+            <a class="archive-link" href="https://decatur.creativecorerail.com" target="_blank" rel="noopener">visit</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-group reveal">
+        <h3>Software in production</h3>
+        <div class="archive-table">
+          <div class="archive-row">
+            <span class="archive-year">Login</span>
+            <span class="archive-name">Coffee Shop Portal</span>
+            <span class="archive-desc">Schedules, checklists, recipes, inventory, messaging, and bookings for coffee shops.</span>
+            <a class="archive-link" href="/products/coffee-shop-portal.html">details</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Login</span>
+            <span class="archive-name">Food Hall Manager</span>
+            <span class="archive-desc">Weekly vendor settlements from live Square data, with vendor logins and CPA exports.</span>
+            <a class="archive-link" href="/products/food-hall-manager.html">details</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Login</span>
+            <span class="archive-name">Manager Portal</span>
+            <span class="archive-desc">Shift handoffs, checklists, bar inventory, and sales-based ordering at St. Roch Market.</span>
+            <a class="archive-link" href="/products/manager-portal.html">details</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Crescent Room booking</span>
+            <span class="archive-desc">Public booking and payment for the meeting room, with instant staff notifications.</span>
+            <a class="archive-link" href="https://coffeeshop.creativecorerail.com/book/cr" target="_blank" rel="noopener">book it</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-group reveal">
+        <h3>Games &amp; small tools, free to use</h3>
+        <div class="archive-table">
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Daily Grind</span>
+            <span class="archive-desc">A daily coffee word puzzle with global stats. People play it every day.</span>
+            <a class="archive-link" href="https://dailygrind.crcoffeenola.com" target="_blank" rel="noopener">play</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Becaffeined</span>
+            <span class="archive-desc">A match-3 game with a global leaderboard, built for CR Coffee regulars.</span>
+            <a class="archive-link" href="https://game.crcoffeenola.com" target="_blank" rel="noopener">play</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Photo Editor</span>
+            <span class="archive-desc">The browser photo editor that replaced my Photoshop subscription.</span>
+            <a class="archive-link" href="/tools/photo-editor.html">open</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Word Processor</span>
+            <span class="archive-desc">A word processor in a single file. No accounts, no cloud.</span>
+            <a class="archive-link" href="/tools/word-processor.html">open</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Live</span>
+            <span class="archive-name">Wizard of the Islands</span>
+            <span class="archive-desc">A learning game I built for my kids: math and reading battles, installable on a tablet.</span>
+            <a class="archive-link" href="https://philipg.creativecorerail.com" target="_blank" rel="noopener">play</a>
+          </div>
+          <div class="archive-row">
+            <span class="archive-year">Private</span>
+            <span class="archive-name">Fare watcher</span>
+            <span class="archive-desc">A script that watches one flight route and emails me when the fare drops under $150.</span>
+            <span class="archive-link">just for me</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section">
     <div class="section-inner">
-      <span class="section-label">Bring us yours</span>
-      <h2 class="section-title">Have an operation that doesn't fit standard software?</h2>
-      <p>That's exactly what we build for.</p>
-      <a href="/contact.html" class="btn btn--sage" data-magnetic>
+      <h2 class="reveal">Want something like this for your business?</h2>
+      <p class="reveal" data-delay="1">Tell me the problem. I'll tell you honestly whether I can fix it.</p>
+      <a href="/contact.html" class="btn btn--copper reveal" data-delay="2">
         Start a conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <p class="cta-proof reveal" data-delay="2">Everything on this page is running today. You just clicked through it.</p>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <svg width="20" height="20" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        <svg width="18" height="18" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
         </svg>
         <div class="footer-wordmark">CORE<span>RAIL</span></div>
-        <span class="footer-copy">&copy; 2026 CoreRail · New Orleans</span>
+        <span class="footer-copy">&copy; 2026 CoreRail &middot; New Orleans &middot; running in production every day</span>
       </div>
       <div class="footer-links">
         <a href="/work/">Work</a>

@@ -4,36 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>CoreRail — Operational software for food halls, coffee shops &amp; multi-vendor hospitality</title>
-  <meta name="description" content="CoreRail builds the operational software for food halls, coffee shops, and multi-vendor hospitality. Built inside a running operation in New Orleans. In production at St. Roch Market and CR Coffee today.">
-  <meta property="og:title" content="CoreRail — Operational software for hospitality">
-  <meta property="og:description" content="Built inside a running operation. In production today.">
+  <title>CoreRail | Software and websites by a working operator</title>
+  <meta name="description" content="I run coffee shops and a food hall in New Orleans, and I build the software that runs them. CoreRail: settlements, scheduling, inventory, booking, and websites, in daily production since 2023.">
+  <meta property="og:title" content="CoreRail | Software and websites by a working operator">
+  <meta property="og:description" content="I run coffee shops and a food hall in New Orleans, and I build the software that runs them.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://creativecorerail.com/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:image" content="https://creativecorerail.com/images/og-image.jpg">
+  <link rel="preload" href="/fonts/outfit-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/outfit-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://creativecorerail.com/#kevin",
+        "name": "Kevin Pedeaux",
+        "jobTitle": "Founder, CoreRail",
+        "url": "https://creativecorerail.com/",
+        "sameAs": ["https://kevinpedeaux.com/"],
+        "address": { "@type": "PostalAddress", "addressLocality": "New Orleans", "addressRegion": "LA" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://creativecorerail.com/#corerail",
+        "name": "CoreRail",
+        "url": "https://creativecorerail.com/",
+        "founder": { "@id": "https://creativecorerail.com/#kevin" },
+        "description": "Operational software and websites for hospitality businesses, built by a working operator in New Orleans."
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="/" class="nav-logo">
-      <svg width="28" height="28" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+    <a href="/" class="nav-logo" aria-label="CoreRail home">
+      <svg width="26" height="26" viewBox="0 0 120 120" fill="none" aria-hidden="true">
         <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
         <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
         <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
         <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
-        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
-        <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
-        <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
-        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
-        <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
-        <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
       </svg>
       <div class="nav-wordmark">CORE<span>RAIL</span></div>
     </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <div class="nav-links">
       <a href="/work/" class="nav-link">Work</a>
       <a href="/products/" class="nav-link">Products</a>
@@ -45,53 +68,32 @@
 
   <!-- HERO -->
   <section class="hero">
-    <svg class="hero-network" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <line x1="120" y1="140" x2="320" y2="200" stroke="var(--sage)" stroke-width="1" opacity="0.12"/>
-      <line x1="320" y1="200" x2="540" y2="120" stroke="var(--sage)" stroke-width="1" opacity="0.08"/>
-      <line x1="540" y1="120" x2="760" y2="220" stroke="var(--sage)" stroke-width="1" opacity="0.10"/>
-      <line x1="760" y1="220" x2="980" y2="160" stroke="var(--sage)" stroke-width="1" opacity="0.07"/>
-      <line x1="980" y1="160" x2="1100" y2="280" stroke="var(--sage)" stroke-width="1" opacity="0.09"/>
-      <line x1="160" y1="380" x2="360" y2="440" stroke="var(--sage)" stroke-width="1" opacity="0.06"/>
-      <line x1="360" y1="440" x2="600" y2="400" stroke="var(--sage)" stroke-width="1" opacity="0.10"/>
-      <line x1="600" y1="400" x2="840" y2="480" stroke="var(--sage)" stroke-width="1" opacity="0.08"/>
-      <line x1="840" y1="480" x2="1060" y2="420" stroke="var(--sage)" stroke-width="1" opacity="0.07"/>
-      <line x1="80" y1="580" x2="280" y2="640" stroke="var(--sage)" stroke-width="1" opacity="0.09"/>
-      <line x1="280" y1="640" x2="500" y2="600" stroke="var(--sage)" stroke-width="1" opacity="0.07"/>
-      <line x1="500" y1="600" x2="720" y2="680" stroke="var(--sage)" stroke-width="1" opacity="0.10"/>
-      <line x1="720" y1="680" x2="940" y2="620" stroke="var(--sage)" stroke-width="1" opacity="0.06"/>
-      <line x1="940" y1="620" x2="1140" y2="700" stroke="var(--sage)" stroke-width="1" opacity="0.08"/>
-      <line x1="320" y1="200" x2="360" y2="440" stroke="var(--sage)" stroke-width="1" opacity="0.06"/>
-      <line x1="540" y1="120" x2="600" y2="400" stroke="var(--sage)" stroke-width="1" opacity="0.05"/>
-      <line x1="760" y1="220" x2="720" y2="680" stroke="var(--sage)" stroke-width="1" opacity="0.04"/>
-      <line x1="840" y1="480" x2="940" y2="620" stroke="var(--sage)" stroke-width="1" opacity="0.06"/>
-      <circle cx="320" cy="200" r="5" fill="var(--sage)" opacity="0.18"/>
-      <circle cx="540" cy="120" r="4" fill="var(--sage)" opacity="0.12"/>
-      <circle cx="760" cy="220" r="6" fill="var(--sage)" opacity="0.16"/>
-      <circle cx="600" cy="400" r="6" fill="var(--sage)" opacity="0.18"/>
-      <circle cx="840" cy="480" r="4" fill="var(--sage)" opacity="0.12"/>
-      <circle cx="280" cy="640" r="5" fill="var(--sage)" opacity="0.14"/>
-      <circle cx="720" cy="680" r="6" fill="var(--sage)" opacity="0.16"/>
-      <circle cx="940" cy="620" r="4" fill="var(--sage)" opacity="0.12"/>
-    </svg>
-
-    <div class="hero-inner" style="grid-template-columns: 1fr; max-width: 880px;">
+    <div class="hero-inner">
       <div class="hero-copy">
-        <h1 class="reveal">
-          Operational software for food halls, coffee shops, and multi-vendor hospitality.
-        </h1>
+        <span class="eyebrow reveal">Kevin Pedeaux &middot; New Orleans</span>
+        <h1 class="reveal">I run coffee shops and a food hall. I build the software that runs them.</h1>
         <p class="hero-sub reveal" data-delay="1">
-          <em style="font-family: var(--font-display); font-style: italic; color: var(--sage);">Built inside a running operation.</em> In production today at St.&nbsp;Roch Market and CR&nbsp;Coffee.
+          CoreRail is the system behind St. Roch Market and CR Coffee: vendor settlements, scheduling, inventory, booking, and the websites out front. I build the same for other operators.
         </p>
         <div class="hero-cta-row reveal" data-delay="2">
-          <a href="/work/" class="btn btn--sage" data-magnetic>
-            See the work
+          <a href="/contact.html" class="btn btn--copper">
+            Tell me what's broken
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="/contact.html" class="text-link">
-            or start a conversation
+          <a href="/work/" class="text-link">
+            or see everything I've built
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
+        <p class="cta-proof reveal" data-delay="2">In daily production since 2023 &middot; 11 vendors settled weekly &middot; 4 coffee shop locations</p>
+      </div>
+      <div class="hero-media reveal" data-delay="1">
+        <figure>
+          <div class="framed">
+            <img src="/images/hero/kevin-desk.jpg" alt="Kevin Pedeaux at his desk, with camera feeds from his businesses on the wall and an espresso machine behind him." width="903" height="1200" fetchpriority="high">
+          </div>
+          <figcaption class="figure-caption">The desk where CoreRail gets built. The cameras watch the buildings it runs.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -103,97 +105,92 @@
       <div class="proof-row">
         <div class="proof-cell">
           <div class="proof-name">St. Roch Market</div>
-          <div class="proof-meta">11 vendors · 150-year-old New Orleans food hall · weekly settlements + shift ops</div>
+          <div class="proof-meta">11 vendors &middot; New Orleans food hall, trading since 1875 &middot; weekly settlements and shift ops</div>
         </div>
         <div class="proof-cell">
           <div class="proof-name">CR Coffee</div>
-          <div class="proof-meta">4 locations · multi-location coffee operations</div>
+          <div class="proof-meta">4 locations &middot; schedules, checklists, inventory, and booking on one portal</div>
         </div>
       </div>
-      <p class="proof-disclaimer">Both operations are run by CoreRail's founder. The software runs in the same buildings he opens every morning.</p>
+      <p class="proof-note">Both are my operations. The software runs in the buildings I open every morning.</p>
     </div>
   </section>
 
-  <!-- PILLARS -->
-  <section class="pillars">
+  <!-- PROBLEMS I FIX -->
+  <section class="band">
     <div class="section-inner">
-      <span class="section-label reveal">What we build</span>
-      <h2 class="section-title reveal">Software that runs where<br><em>your business runs.</em></h2>
-      <p class="section-desc reveal" data-delay="1">
-        Multi-vendor spaces, multi-location shops, and hospitality operations have problems generic software doesn't solve. CoreRail builds the specific tools that do.
-      </p>
-      <div class="pillar-grid">
-        <div class="pillar-card reveal" data-delay="1">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-            </svg>
-          </div>
-          <h3>Vendor settlements</h3>
-          <p>Weekly settlements pulled from live Square POS data. Commission splits, delivery fees, daily minimums, linen charges, balance carryover — calculated, not guessed. CPA-ready Excel exports and full audit logging.</p>
+      <h2 class="reveal">Problems I get hired to fix</h2>
+      <p class="lead reveal" data-delay="1">If you own a small business, some of these will sound familiar. I've lived every one of them.</p>
+      <div class="row-list">
+        <div class="row-item reveal">
+          <h3>"The schedule lives in a group text."</h3>
+          <p>Schedules, checklists, recipes, and team messaging move onto one system that opens like an app on every staff phone. Nothing to install, nothing to print.</p>
         </div>
-        <div class="pillar-card reveal" data-delay="2">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
-            </svg>
-          </div>
-          <h3>Shift &amp; inventory ops</h3>
-          <p>Schedules with swaps and time-off, opening and closing checklists, bar inventory with par-level alerts, team messaging with ack-required announcements, real-time labor cost monitoring. One installable web app on every staff phone — opens like a native app, no App Store, no IT install.</p>
+        <div class="row-item reveal">
+          <h3>"I do the books at midnight."</h3>
+          <p>Settlements and payouts calculate themselves from live Square data, with a CPA-ready export. At St. Roch Market that turned six hours a week into about ten.</p>
         </div>
-        <div class="pillar-card reveal" data-delay="3">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <h3>Web presence &amp; identity</h3>
-          <p>Professional websites with vendor pages, event listings, online ordering integration, schema markup, and the kind of web presence that matches the quality of the space behind it.</p>
+        <div class="row-item reveal">
+          <h3>"The website is three years stale."</h3>
+          <p>My sites update themselves. Your social posts become news stories, and the stories become Google Business Profile posts. Post once, market everywhere.</p>
+        </div>
+        <div class="row-item reveal">
+          <h3>"Sales dipped and I don't know why."</h3>
+          <p>Your POS already knows. I read the data, find out which customers stopped coming and when, and set up the campaign to win them back.</p>
+        </div>
+        <div class="row-item reveal">
+          <h3>"Every tool is another monthly fee."</h3>
+          <p>I replace rented software with software you own. My own shops stopped paying for booking and photo editing; yours can stop paying for more than that.</p>
+        </div>
+        <div class="row-item reveal">
+          <h3>"I don't have time to set up new software."</h3>
+          <p>You don't set up anything. Send me your data in any form it exists and I load it all myself, free. You get a working system on day one.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ANTI-GRID MARQUEE -->
-  <section class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Vendor settlements</span><span>Par-level inventory</span><span>Square POS sync</span><span>Shift swaps</span><span>Push notifications</span><span>CPA-ready exports</span><span>Weekly minimums</span><span>Audit logging</span><span>Per-tenant isolation</span><span>Custom branding</span><span>Real-time labor cost</span><span>Online ordering</span><span>Schema markup</span><span>Recipes &amp; training</span><span>Vendor portals</span><span>Vendor settlements</span><span>Par-level inventory</span><span>Square POS sync</span><span>Shift swaps</span><span>Push notifications</span><span>CPA-ready exports</span><span>Weekly minimums</span><span>Audit logging</span><span>Per-tenant isolation</span><span>Custom branding</span><span>Real-time labor cost</span><span>Online ordering</span><span>Schema markup</span><span>Recipes &amp; training</span><span>Vendor portals</span>
-    </div>
-  </section>
-
-  <!-- CASE STUDY TEASERS -->
-  <section class="work-index">
+  <!-- FEATURED WORK -->
+  <section class="band">
     <div class="section-inner">
-      <span class="section-label reveal">The work</span>
-      <h2 class="section-title reveal">Built where it runs.<br><em>Two stories.</em></h2>
-      <p class="section-desc reveal" data-delay="1">
-        Every CoreRail product was built inside a running operation. These are the two operations.
-      </p>
+      <h2 class="reveal">The work</h2>
+      <p class="lead reveal" data-delay="1">Three of the systems I use every day. The full list is on the work page.</p>
       <div class="work-grid">
         <a href="/work/st-roch-market.html" class="work-card reveal" data-delay="1">
           <div class="work-card-image">
-            <img src="/images/work/st-roch-market-interior.jpg" alt="Interior of St. Roch Market, a 150-year-old food hall in New Orleans.">
+            <img src="/images/work/st-roch-market-interior.jpg" alt="Interior of St. Roch Market, a New Orleans food hall." loading="lazy">
           </div>
-          <div>
-            <div class="work-card-meta">Case study · St. Roch Market</div>
-            <h3>From midnight spreadsheets to push-button settlements at a 150-year-old food hall.</h3>
-            <p>Eleven independent vendors, one bar, daily handoffs, weekly settlements. We replaced six hours of manual reconciliation with a vendor portal and a CPA-ready export.</p>
-            <span class="text-link">
-              Read the case study
+          <div class="work-card-body">
+            <div class="work-card-meta">Case study &middot; Food Hall Manager</div>
+            <h3>Vendor settlements went from six hours a week to about ten minutes.</h3>
+            <p>Eleven vendors, one bar, live Square data, and a CPA-ready export every week at St. Roch Market.</p>
+            <span class="text-link">Read the case study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </span>
           </div>
         </a>
         <a href="/work/cr-coffee.html" class="work-card reveal" data-delay="2">
           <div class="work-card-image">
-            <img src="/images/work/cr-coffee-magazine-dusk-thumb.jpg" alt="CR Coffee on Magazine Street, New Orleans, at dusk.">
+            <img src="/images/products/portal-schedule.jpg" alt="The Coffee Shop Portal schedule view showing a published week of barista shifts." loading="lazy">
           </div>
-          <div>
-            <div class="work-card-meta">Case study · CR Coffee</div>
-            <h3>Running four coffee shop locations on one app.</h3>
-            <p>Schedules, checklists, recipes, messaging, and inventory across four New Orleans coffee shops — all running on the Coffee Shop Portal.</p>
-            <span class="text-link">
-              Read the case study
+          <div class="work-card-body">
+            <div class="work-card-meta">Case study &middot; Coffee Shop Portal</div>
+            <h3>Four coffee shops run on one app instead of a group text.</h3>
+            <p>Schedules, checklists, recipes, messaging, and inventory for CR Coffee's whole team.</p>
+            <span class="text-link">Read the case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/work/crescent-room.html" class="work-card reveal" data-delay="3">
+          <div class="work-card-image">
+            <img src="/images/work/crescent-room-booking.jpg" alt="The public booking page for the Crescent Room at CR Coffee on Magazine Street." loading="lazy">
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-meta">Case study &middot; Room booking</div>
+            <h3>The booking system that ended a monthly software fee.</h3>
+            <p>Customers book and pay online, and the baristas on shift get the message instantly.</p>
+            <span class="text-link">Read the case study
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </span>
           </div>
@@ -202,43 +199,121 @@
     </div>
   </section>
 
-  <!-- WHY CORERAIL (numbers + portrait) -->
-  <section class="why-corerail" id="about">
+  <!-- MARKETING FLYWHEEL -->
+  <section class="band band--parchment">
     <div class="section-inner">
-      <span class="section-label reveal">Why CoreRail</span>
-      <h2 class="section-title reveal">Built by an operator with eleven years inside hospitality.</h2>
-      <div class="why-grid" style="margin-top: 48px;">
-        <div class="why-portrait reveal">
-          <img src="/images/portraits/kevin-portrait.jpg" alt="Kevin Pedeaux at his desk monitoring camera feeds across vendor operations." width="680" height="760">
-          <div class="why-caption">
-            <strong>Kevin Pedeaux</strong>
-            Founder, CoreRail · Operator since 2015
-          </div>
+      <h2 class="reveal">Post once. Market everywhere.</h2>
+      <div class="split">
+        <div class="reveal">
+          <p>You already post to social media. On my sites, that post becomes a news story on your website, and the story becomes a Google Business Profile post. The whole brand says the same thing at the same time, without anyone doing the work twice.</p>
+          <p style="margin-top: 16px;">Every story ships with the search work done: structured data Google reads, and GEO, which means the signals AI tools like ChatGPT read when someone asks them for the best coffee near Magazine Street.</p>
+          <p style="margin-top: 16px;">It works past hospitality too. A journalist's portfolio I built adds her new articles by itself every morning, and a reader's site turns her YouTube videos into posts automatically.</p>
+          <p class="cta-proof">crcoffeenola.com, strochmarket.com, and lilycummings.net run this way today.</p>
         </div>
-        <div class="why-content reveal" data-delay="1">
+        <div class="reveal" data-delay="1">
+          <ul class="check-list">
+            <li>You post to Instagram like you already do</li>
+            <li>The post becomes a news story on your site</li>
+            <li>The story becomes a Google Business Profile post</li>
+            <li>Search engines and AI answers pick all of it up</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIPTION KILLER -->
+  <section class="band">
+    <div class="section-inner">
+      <h2 class="reveal">I delete monthly fees where I can.</h2>
+      <p class="lead reveal" data-delay="1">Software you own beats software you rent. Two fees my own businesses stopped paying:</p>
+      <div class="split">
+        <div class="reveal" data-delay="1">
+          <h3>The booking subscription</h3>
+          <p style="margin-top: 10px;">CR Coffee canceled Square Appointments. My booking system sells the Crescent Room, takes the payment, and messages the baristas on shift the moment a booking lands.</p>
+          <a href="/work/crescent-room.html" class="text-link" style="margin-top: 16px;">How the booking system works
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="reveal" data-delay="2">
+          <h3>The Photoshop subscription</h3>
+          <p style="margin-top: 10px;">I canceled mine and edit every site photo with a photo editor I wrote. It runs in your browser and it's free on this site for anyone to use.</p>
+          <a href="/tools/photo-editor.html" class="text-link" style="margin-top: 16px;">Open the photo editor
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section class="band">
+    <div class="section-inner">
+      <h2 class="reveal">Marketing people come back for</h2>
+      <div class="split">
+        <div class="reveal">
+          <p>Ads interrupt people. A good game brings them back on their own. I built two for CR Coffee: a daily word puzzle and a match-3 with a global leaderboard. People play them every day, and the brand rides along for the two minutes they're waiting on their order.</p>
+          <p style="margin-top: 16px;">The same idea works for any local brand: give people a small daily reason to think about you.</p>
+        </div>
+        <div class="reveal" data-delay="1">
+          <ul class="check-list">
+            <li><a href="https://dailygrind.crcoffeenola.com" target="_blank" rel="noopener">Daily Grind</a>: one coffee word a day, streaks and global stats</li>
+            <li><a href="https://game.crcoffeenola.com" target="_blank" rel="noopener">Becaffeined</a>: match-3 with a leaderboard CR regulars fight over</li>
+            <li>Both free, both in the browser, both playable right now</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE SETUP -->
+  <section class="band band--parchment">
+    <div class="section-inner">
+      <h2 class="reveal">Your data goes in free. I do the setup.</h2>
+      <p class="lead reveal" data-delay="1">
+        Operators look at new software and see weeks of data entry, so they keep the spreadsheet. Skip that part: send me your source of truth in whatever shape it exists. A spreadsheet, a binder, notes in purple crayon. I load all of it myself, at no charge, and hand you a system that already knows your business on day one.
+      </p>
+    </div>
+  </section>
+
+  <!-- NUMBERS + PORTRAIT -->
+  <section class="band">
+    <div class="section-inner">
+      <h2 class="reveal">Built by the operator, not just for one.</h2>
+      <div class="why-grid">
+        <figure class="reveal">
+          <div class="framed">
+            <img src="/images/portraits/kevin-portrait.jpg" alt="Kevin Pedeaux at his desk." width="680" height="760" loading="lazy">
+          </div>
+          <figcaption class="why-caption">
+            <strong>Kevin Pedeaux</strong>
+            Founder, CoreRail &middot; Operating in New Orleans since 2015
+          </figcaption>
+        </figure>
+        <div class="reveal" data-delay="1">
           <p class="why-statement">
-            CoreRail isn't a product built by developers who interviewed operators. It's infrastructure built by someone who still opens the building every morning.
+            CoreRail isn't software built by developers who interviewed operators. I open the building, pull the Square reports, and write the code. When something breaks during service, I'm the one it breaks on.
           </p>
           <div class="stat-row">
             <div class="stat-block">
+              <span class="stat-number">6h &rarr; 10m</span>
+              <span class="stat-label">weekly settlement work at St. Roch Market</span>
+            </div>
+            <div class="stat-block">
               <span class="stat-number">11</span>
-              <span class="stat-label">vendors settled weekly at St.&nbsp;Roch Market</span>
+              <span class="stat-label">vendors settled every week from live Square data</span>
             </div>
             <div class="stat-block">
-              <span class="stat-number">4</span>
-              <span class="stat-label">CR&nbsp;Coffee locations on the Portal</span>
+              <span class="stat-number">+22%</span>
+              <span class="stat-label">new customers at CR Coffee after the ads and website rebuild, measured in Square</span>
             </div>
             <div class="stat-block">
-              <span class="stat-number">25+</span>
-              <span class="stat-label">vendor relationships managed</span>
-            </div>
-            <div class="stat-block">
-              <span class="stat-number">2015</span>
-              <span class="stat-label">operating multi-vendor spaces in NOLA</span>
+              <span class="stat-number">$0</span>
+              <span class="stat-label">monthly booking fees since the Crescent Room system launched</span>
             </div>
           </div>
-          <a href="/about.html" class="text-link why-read-more">
-            Read the founder story
+          <a href="/about.html" class="text-link why-read-more" style="margin-top: 32px;">
+            Read the full story
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -246,30 +321,51 @@
     </div>
   </section>
 
-  <!-- POSITIONING -->
-  <section class="positioning">
+  <!-- FAQ -->
+  <section class="band">
     <div class="section-inner">
-      <span class="section-label reveal">The bottom line</span>
-      <blockquote class="reveal" data-delay="1">
-        Running a food hall, restaurant group, or multi-location shop?<br>
-        You need software built by someone who's done your job —<br>
-        not someone who read about it.
-      </blockquote>
+      <h2 class="reveal">Questions operators ask me</h2>
+      <div class="faq reveal" data-delay="1">
+        <details>
+          <summary>What does it cost?</summary>
+          <p>It depends on what's broken. Tell me the problem and I'll give you a written proposal with the scope, the timeline, and the price in one place. No charge for the conversation, and data setup is always free.</p>
+        </details>
+        <details>
+          <summary>Do I own it?</summary>
+          <p>Yes. Websites are yours: the code, the domain, the content. You can edit them yourself, and I record a walkthrough so you know how. No ransom retainers.</p>
+        </details>
+        <details>
+          <summary>My records are a mess. Is that a problem?</summary>
+          <p>No. Messy is normal. If you have a source of truth in any form, I can load it. That part is my job, not yours, and it's free.</p>
+        </details>
+        <details>
+          <summary>Aren't you busy running your own businesses?</summary>
+          <p>Yes, and that's the point. The software gets tested against a real service rush every day before it ever gets to you. When you call, you get the person who builds it and uses it.</p>
+        </details>
+        <details>
+          <summary>What happens after launch?</summary>
+          <p>You get a recorded walkthrough of your system, direct access to me for questions, and fixes when something's wrong. Launch is the start of the job, not the end.</p>
+        </details>
+        <details>
+          <summary>Does it work with Square?</summary>
+          <p>That's the core of it. CoreRail is built on the Square platform: live sales data, labor, loyalty, and payments. If you're on Square, most of the wiring already exists.</p>
+        </details>
+      </div>
     </div>
   </section>
 
-  <!-- SINGULAR CTA -->
+  <!-- CLOSING CTA -->
   <section class="cta-section" id="contact">
     <div class="section-inner">
-      <span class="section-label reveal">Let's talk</span>
-      <h2 class="section-title reveal">Tell us what's broken.</h2>
+      <h2 class="reveal">Tell me what's broken.</h2>
       <p class="reveal" data-delay="1">
-        CoreRail builds operational software for hospitality businesses. Every product starts with the problems you're already dealing with. Bring yours.
+        Every system I build starts with a problem an operator is already living with. Bring yours.
       </p>
-      <a href="/contact.html" class="btn btn--sage reveal" data-delay="2" data-magnetic>
+      <a href="/contact.html" class="btn btn--copper reveal" data-delay="2">
         Start a conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <p class="cta-proof reveal" data-delay="2">I read every message and reply within two business days, usually sooner.</p>
     </div>
   </section>
 
@@ -277,20 +373,14 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <svg width="20" height="20" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 120 120" fill="none" aria-hidden="true">
           <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
-          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
-          <rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
-          <rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
-          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/>
-          <circle cx="30" cy="60" r="6" fill="#FAF8F4"/>
-          <circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
-          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/>
-          <circle cx="90" cy="60" r="6" fill="#FAF8F4"/>
-          <circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
         </svg>
         <div class="footer-wordmark">CORE<span>RAIL</span></div>
-        <span class="footer-copy">&copy; 2026 CoreRail · New Orleans</span>
+        <span class="footer-copy">&copy; 2026 CoreRail &middot; New Orleans &middot; running in production every day</span>
       </div>
       <div class="footer-links">
         <a href="/work/">Work</a>

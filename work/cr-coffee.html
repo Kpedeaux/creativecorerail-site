@@ -4,22 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>CR Coffee — case study | CoreRail</title>
-  <meta name="description" content="How CoreRail's Coffee Shop Portal runs four New Orleans coffee shops on one installable web app.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>CR Coffee case study | CoreRail</title>
+  <meta name="description" content="Four New Orleans coffee shops run on one app: schedules, checklists, recipes, messaging, and inventory on the Coffee Shop Portal, built by the operator.">
+  <meta property="og:title" content="CR Coffee case study | CoreRail">
+  <meta property="og:description" content="Four coffee shops run on one app instead of a group text.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://creativecorerail.com/work/cr-coffee.html">
+  <meta property="og:image" content="https://creativecorerail.com/images/work/cr-coffee-magazine-dusk.jpg">
+  <link rel="preload" href="/fonts/outfit-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/outfit-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
   <nav class="nav" id="nav">
-    <a href="/" class="nav-logo">
-      <svg width="28" height="28" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+    <a href="/" class="nav-logo" aria-label="CoreRail home">
+      <svg width="26" height="26" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+        <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+        <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+        <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
       </svg>
       <div class="nav-wordmark">CORE<span>RAIL</span></div>
     </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <div class="nav-links">
       <a href="/work/" class="nav-link">Work</a>
       <a href="/products/" class="nav-link">Products</a>
@@ -31,23 +41,22 @@
 
   <section class="case-hero">
     <div class="case-hero-bg">
-      <img src="/images/work/cr-coffee-magazine-dusk.jpg" alt="CR Coffee on Magazine Street, New Orleans, at dusk.">
+      <img src="/images/work/cr-coffee-magazine-dusk.jpg" alt="">
     </div>
     <div class="case-hero-inner">
-      <a href="/work/" class="back-link" style="color: var(--sage-soft);">
+      <a href="/work/" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         All work
       </a>
-      <span class="eyebrow eyebrow--light">Case study · CR Coffee</span>
-      <h1>Running four coffee shop locations on <em>one app.</em></h1>
+      <span class="eyebrow" style="color: var(--sage-light);">Case study &middot; CR Coffee</span>
+      <h1>Four coffee shops run on one app instead of a group text.</h1>
       <p class="case-hero-lede">
-        Schedules with shift swaps. Opening and closing checklists. Recipes and training. Team messaging with ack-required announcements. Inventory with supplier-ready order sheets. Push notifications. Four shops, one team — installed on every staff phone.
+        CR Coffee used to run on a group text, a shared drive, and paper. Now the schedule, the checklists, the recipes, and the ordering live in one app on every staff phone. Four locations run on the portal. I operate three of them day to day.
       </p>
       <div class="case-stats">
-        <div class="case-stat"><span class="num">4</span><span class="lab">retail coffee locations</span></div>
-        <div class="case-stat"><span class="num">1 team</span><span class="lab">coordinated across every shop</span></div>
-        <div class="case-stat"><span class="num">1 app</span><span class="lab">on every staff phone</span></div>
-        <div class="case-stat"><span class="num">2024</span><span class="lab">in daily production since</span></div>
+        <div class="case-stat"><span class="num">4</span><span class="lab">locations on the portal</span></div>
+        <div class="case-stat"><span class="num">9</span><span class="lab">shift checklists across three shift types</span></div>
+        <div class="case-stat"><span class="num">12</span><span class="lab">binder sections of recipes and training</span></div>
       </div>
     </div>
   </section>
@@ -56,62 +65,66 @@
     <div class="section-inner">
       <h2>The state before</h2>
       <p>
-        CR Coffee is a New Orleans coffee company with four retail locations. Like most growing multi-location shops, it had hit the wall where the group text + a shared Google Drive + three different scheduling apps stops scaling. Schedules lived in one app, recipes lived in a folder, training lived in another folder, the manager's clipboards lived on a clipboard. Updating a recipe meant updating it in three places and hoping the right people noticed. New hires onboarded by being handed a stack of paper.
+        Schedules lived in one app. Recipes lived in a folder. Training lived in another folder. The manager's checklists lived on a clipboard. Updating a recipe meant updating it in three places and hoping the right people noticed, and new hires onboarded by being handed a stack of paper.
       </p>
       <p>
-        The breaking point was the moment between "we have one shop" and "we have four shops." That's the gap that destroys operations — the systems that worked for one fail silently at four, and by the time you notice, you've lost a week of consistency.
+        The systems that work for one shop fail quietly when you get to four. By the time you notice, you've lost a week of consistency.
       </p>
 
-      <h2>What we built</h2>
+      <h2>What I built</h2>
       <p>
-        The Coffee Shop Portal is a multi-tenant Progressive Web App (PWA) — an installable web app that lives on any staff phone like a native app, with no App Store and no IT request — that unifies the eight or nine things a multi-location coffee operation needs to run. It's per-tenant isolated (each shop gets its own database, branding, and access controls), mobile-first (every interaction tested on a barista's phone, not a designer's laptop), and built so that the things that change most often (schedules, recipes, announcements) update once and propagate everywhere.
+        The Coffee Shop Portal is an installable web app. It lives on any staff phone like a native app, with no App Store and nothing for anyone to install or maintain. The things that change most often update once and show up everywhere.
       </p>
       <ul>
-        <li>Schedules with shift swap requests and time-off workflows</li>
-        <li>Opening and closing checklists, customizable per location</li>
-        <li>Recipes and training materials, version-controlled</li>
-        <li>Team messaging with ack-required announcements ("did everyone read this?")</li>
-        <li>Inventory with supplier-ready order sheets — par levels, restock triggers, vendor lookup</li>
-        <li>Push notifications for shift changes, inventory alerts, and manager broadcasts</li>
-        <li>Per-tenant isolation: each shop's data is fully separated; each shop gets its own branding</li>
+        <li>Schedules with shift swaps and time-off requests</li>
+        <li>Opening, mid, and closing checklists, set per location</li>
+        <li>Recipes and training in a searchable binder</li>
+        <li>Team messaging with announcements that require an acknowledgment</li>
+        <li>Inventory counts that turn into supplier-ready order emails</li>
+        <li>Event bookings, so the whole team sees what's coming</li>
       </ul>
 
-      <h2>The state after</h2>
+      <h2>What changed</h2>
       <p>
-        New hires onboard with a phone in their hand. A recipe change in the back office propagates to every barista on shift. The opening manager doesn't have to call the closing manager from yesterday to find out what got left undone. Inventory order sheets generate themselves from par-level thresholds — the manager reviews, edits, and sends. The four shops operate as one coordinated team instead of four parallel ones.
+        New hires onboard with a phone in their hand. A recipe change reaches every barista on shift the same day. The opening manager doesn't call yesterday's closer to find out what got left undone. Order sheets build themselves from the counts, and the manager just reviews and sends.
       </p>
       <p>
-        Most importantly, the operation runs on infrastructure that the operator controls. There's no SaaS bill that doubles. There's no feature roadmap held hostage by a vendor's quarterly priorities. When something needs to change at CR Coffee, it changes that night.
+        And because I'm the operator and the developer, nothing waits on a vendor's roadmap. When something needs to change at CR Coffee, it changes that night.
       </p>
     </div>
   </section>
 
-  <section class="case-pullquote">
-    <div class="case-pullquote-inner">
-      <blockquote>
-        Stops running your shop out of a group text and a spreadsheet. That was the brief. The Portal is what came out of it.
-      </blockquote>
-      <cite>— Kevin Pedeaux, Founder · CoreRail · Operator, CR Coffee</cite>
-    </div>
-  </section>
+  <div class="shot-row section-inner" style="padding-top: 0; padding-bottom: 0;">
+    <figure>
+      <div class="framed">
+        <img src="/images/products/portal-checklists.jpg" alt="Checklist templates in the Coffee Shop Portal: opening, mid, and closing lists for three locations." loading="lazy">
+      </div>
+      <figcaption class="figure-caption">Every shift at every location has its own checklist.</figcaption>
+    </figure>
+    <figure>
+      <div class="framed">
+        <img src="/images/products/portal-knowledge.jpg" alt="The Knowledge binder in the Coffee Shop Portal, holding SOPs, training docs, and recipes." loading="lazy">
+      </div>
+      <figcaption class="figure-caption">The binder: SOPs and recipes the team pulls up at the bar.</figcaption>
+    </figure>
+  </div>
 
   <section class="case-lessons">
     <div class="section-inner">
-      <span class="section-label">What we'd do differently</span>
-      <h2 class="section-title">Lessons we earned the hard way.</h2>
-      <p class="section-desc">The Portal is in its third major architectural iteration. Here's what we got wrong on the first two.</p>
+      <h2>What I'd do differently</h2>
+      <p style="margin-top: 12px;">The portal is on its third major version. Here's what the first two got wrong.</p>
       <div class="case-lessons-grid">
         <div class="case-lesson">
           <h3>Built for desktop first</h3>
-          <p>The first version had a clean desktop UI and a cramped mobile experience. Baristas live on phones. The mobile-first rewrite came painfully — we'd start from the phone screen now and let the desktop be derivative.</p>
+          <p>The first version had a clean desktop UI and a cramped mobile one. Baristas live on phones. Now I start from the phone screen and let the desktop follow.</p>
         </div>
         <div class="case-lesson">
-          <h3>Multi-tenant came late</h3>
-          <p>v1 was effectively single-tenant. When the second shop went live, we discovered every place we'd hardcoded assumptions. The migration to per-tenant database isolation took weeks. Start with multi-tenant architecture from day one.</p>
+          <h3>Multi-shop came late</h3>
+          <p>Version one assumed a single shop. When the second location went live, every hardcoded assumption surfaced at once. The rework took weeks. I build for many locations from day one now.</p>
         </div>
         <div class="case-lesson">
-          <h3>Push notifications too aggressive</h3>
-          <p>Early push notifications fired for everything. Staff started silencing them, which defeated the point. The current system is opt-in by category with smart batching. We'd ship the granular controls with v1 next time.</p>
+          <h3>Too many notifications</h3>
+          <p>Early push notifications fired for everything, so staff silenced them, which defeated the point. Now they're opt-in by category and batched.</p>
         </div>
       </div>
     </div>
@@ -119,24 +132,27 @@
 
   <section class="cta-section">
     <div class="section-inner">
-      <span class="section-label">Bring us yours</span>
-      <h2 class="section-title">Operating multi-location retail or hospitality?</h2>
-      <p>The Coffee Shop Portal is multi-tenant by design. The patterns are battle-tested. Let's talk.</p>
-      <a href="/contact.html" class="btn btn--sage" data-magnetic>
+      <h2 class="reveal">Running more than one location?</h2>
+      <p class="reveal" data-delay="1">If your operation lives in a group text and a stack of paper, this is the fix.</p>
+      <a href="/contact.html" class="btn btn--copper reveal" data-delay="2">
         Start a conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <p class="cta-proof reveal" data-delay="2">Running every CR Coffee shift since launch. Your data goes in free.</p>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <svg width="20" height="20" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/><rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/><circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/><circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
+        <svg width="18" height="18" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <rect x="54" y="10" width="12" height="100" rx="2" fill="#FAF8F4"/>
+          <rect x="30" y="22" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="57" width="60" height="6" rx="1.5" fill="#FAF8F4"/><rect x="30" y="92" width="60" height="6" rx="1.5" fill="#FAF8F4"/>
+          <circle cx="30" cy="25" r="6" fill="#FAF8F4"/><circle cx="30" cy="60" r="6" fill="#FAF8F4"/><circle cx="30" cy="95" r="6" fill="#FAF8F4"/>
+          <circle cx="90" cy="25" r="6" fill="#FAF8F4"/><circle cx="90" cy="60" r="6" fill="#FAF8F4"/><circle cx="90" cy="95" r="6" fill="#FAF8F4"/>
         </svg>
         <div class="footer-wordmark">CORE<span>RAIL</span></div>
-        <span class="footer-copy">&copy; 2026 CoreRail · New Orleans</span>
+        <span class="footer-copy">&copy; 2026 CoreRail &middot; New Orleans &middot; running in production every day</span>
       </div>
       <div class="footer-links">
         <a href="/work/">Work</a>

@@ -1,29 +1,36 @@
 # CoreRail
 
 ## About
-CoreRail (creativecorerail.com) is a hospitality operations software company founded by Kevin Pedeaux. CoreRail builds operational software for food halls, coffee shops, and multi-vendor hospitality businesses — battle-tested daily inside two operations the founder runs himself: St. Roch Market (a 150-year-old food hall in New Orleans with 11 vendors) and CR Coffee (four New Orleans coffee shops). The software runs in the same buildings the founder opens every morning.
+CoreRail (creativecorerail.com) is Kevin Pedeaux, a New Orleans operator who builds the software and websites his own businesses run on, and builds the same for other small businesses. He operates St. Roch Market (a New Orleans food hall trading since 1875, with 11 independent vendors) and CR Coffee (New Orleans coffee shops), and the software runs in the buildings he opens every morning. Services: operational software (settlements, scheduling, checklists, inventory, booking) built on the Square platform; hand-coded websites with SEO, structured data, and Google Business Profile integration; marketing automation that turns social media posts into website news stories and Google Business Profile posts; replacing subscription software with software the business owns. Data setup is free: clients send their records in any form and Kevin loads them himself.
 
 ## Site map
 - Home: https://creativecorerail.com/
-- Work (case studies): https://creativecorerail.com/work/
-  - St. Roch Market case study: https://creativecorerail.com/work/st-roch-market.html
-  - CR Coffee case study: https://creativecorerail.com/work/cr-coffee.html
+- Work (case studies + everything shipped): https://creativecorerail.com/work/
+  - St. Roch Market settlements case study: https://creativecorerail.com/work/st-roch-market.html
+  - CR Coffee portal case study: https://creativecorerail.com/work/cr-coffee.html
+  - Crescent Room booking case study: https://creativecorerail.com/work/crescent-room.html
 - Products: https://creativecorerail.com/products/
-- Tools: https://creativecorerail.com/tools/
+- Tools (free): https://creativecorerail.com/tools/
 - About: https://creativecorerail.com/about.html
 - Contact: https://creativecorerail.com/contact.html
 
 ## Products
-- Coffee Shop Portal (flagship, multi-tenant SaaS): https://coffeeshop.creativecorerail.com
-- Food Hall Manager (vendor settlements): https://vendorportal.creativecorerail.com
-- Manager Portal (shift + inventory): https://managerportal.creativecorerail.com
+- Coffee Shop Portal (schedules, checklists, recipes, messaging, inventory, bookings): https://creativecorerail.com/products/coffee-shop-portal.html
+- Food Hall Manager (vendor settlements from live Square data): https://creativecorerail.com/products/food-hall-manager.html
+- Manager Portal (shift handoffs, bar inventory, sales-based ordering): https://creativecorerail.com/products/manager-portal.html
+
+## Live work
 - St. Roch Market website: https://strochmarket.com
 - CR Coffee website: https://crcoffeenola.com
+- Lily Cummings journalist portfolio (updates itself daily): https://lilycummings.net
+- Crescent Room public booking: https://coffeeshop.creativecorerail.com/book/cr
+- Daily Grind word game: https://dailygrind.crcoffeenola.com
+- Becaffeined match-3 game: https://game.crcoffeenola.com
 
-## Browser-based tools
+## Free browser tools
 - Photo Editor: https://creativecorerail.com/tools/photo-editor.html
-- WordCraft (word processor): https://creativecorerail.com/tools/word-processor.html
+- Word Processor: https://creativecorerail.com/tools/word-processor.html
 
 ## Contact
-- Email: kevin@creativecorerail.com
+- Email: pedeaux@gmail.com
 - Contact form: https://creativecorerail.com/contact.html
