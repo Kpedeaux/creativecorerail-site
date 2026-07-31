@@ -77,6 +77,8 @@
 
 html { scroll-behavior: smooth; }
 
+html, body { overflow-x: clip; }
+
 body {
   font-family: var(--font-body);
   font-size: 16.5px;
@@ -583,12 +585,14 @@ strong { color: var(--ink); font-weight: 600; }
 .archive-table { border-top: 1px solid var(--ink); margin-top: 12px; }
 .archive-row {
   display: grid;
-  grid-template-columns: 64px 230px 1fr 92px;
+  grid-template-columns: 64px 230px minmax(0, 1fr) 92px;
   gap: var(--s3);
   align-items: baseline;
   padding: 13px 0;
   border-bottom: 1px solid var(--rule);
 }
+.archive-row > * { min-width: 0; }
+.archive-desc { overflow-wrap: anywhere; }
 .archive-year { font-family: var(--font-mono); font-size: 13px; color: var(--slate); }
 .archive-name { font-weight: 600; color: var(--ink); font-size: 15.5px; }
 .archive-desc { font-size: 14.5px; color: var(--charcoal); }
@@ -774,7 +778,7 @@ span.archive-link { color: #B9B4A9; }
   .hero-media { max-width: 480px; }
   .split, .why-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: var(--s5); }
   .work-grid, .product-grid, .case-lessons-grid { grid-template-columns: 1fr 1fr; }
-  .archive-row { grid-template-columns: 56px 1fr 92px; }
+  .archive-row { grid-template-columns: 56px minmax(0, 1fr) 92px; }
   .archive-desc { grid-column: 2 / 3; }
 }
 
