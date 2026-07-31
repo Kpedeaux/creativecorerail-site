@@ -50,3 +50,7 @@ KevinatComputer.jpg
 magazine-dusk-exterior.jpg
 screenshots/
 .claude/
+
+# Wrangler local state (account ids, caches, auth)
+.wrangler/
+worker/.wrangler/

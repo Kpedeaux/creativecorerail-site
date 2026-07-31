@@ -99,7 +99,8 @@
     white-space: nowrap;
   }
 
-  .menu-action:hover { background: var(--primary); color: white; }
+  button.menu-action { display: block; width: 100%; font: inherit; text-align: left; background: none; border: none; color: inherit; }
+.menu-action:hover { background: var(--primary); color: white; }
   .menu-action .shortcut { color: var(--text-muted); font-size: 12px; }
   .menu-action:hover .shortcut { color: rgba(255,255,255,0.8); }
   .menu-sep { height: 1px; background: var(--border-light); margin: 4px 8px; }
@@ -548,6 +549,8 @@
 </style>
 </head>
 <body>
+<main id="main" style="display:contents">
+<h1 class="sr-only-h1" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">CoreRail Word Processor</h1>
 
 <!-- ═══ Menu Bar ═══ -->
 <div class="menu-bar">
@@ -556,69 +559,69 @@
   <div class="menu-item" data-menu="file">
     File
     <div class="menu-dropdown">
-      <div class="menu-action" onclick="newDoc()">New Document <span class="shortcut">Ctrl+Alt+N</span></div>
-      <div class="menu-action" onclick="openFile()">Open… <span class="shortcut">Ctrl+O</span></div>
+      <button type="button" class="menu-action" onclick="newDoc()">New Document <span class="shortcut">Ctrl+Alt+N</span></button>
+      <button type="button" class="menu-action" onclick="openFile()">Open… <span class="shortcut">Ctrl+O</span></button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="saveAsHTML()">Save as HTML <span class="shortcut">Ctrl+S</span></div>
-      <div class="menu-action" onclick="saveAsTxt()">Save as Text</div>
-      <div class="menu-action" onclick="saveAsDocx()">Save as DOCX</div>
+      <button type="button" class="menu-action" onclick="saveAsHTML()">Save as HTML <span class="shortcut">Ctrl+S</span></button>
+      <button type="button" class="menu-action" onclick="saveAsTxt()">Save as Text</button>
+      <button type="button" class="menu-action" onclick="saveAsDocx()">Save as DOCX</button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="exportPDF()">Export PDF <span class="shortcut">Ctrl+P</span></div>
+      <button type="button" class="menu-action" onclick="exportPDF()">Export PDF <span class="shortcut">Ctrl+P</span></button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="printDoc()">Print… <span class="shortcut">Ctrl+Shift+P</span></div>
+      <button type="button" class="menu-action" onclick="printDoc()">Print… <span class="shortcut">Ctrl+Shift+P</span></button>
     </div>
   </div>
 
   <div class="menu-item" data-menu="edit">
     Edit
     <div class="menu-dropdown">
-      <div class="menu-action" onclick="doCmd('undo')">Undo <span class="shortcut">Ctrl+Z</span></div>
-      <div class="menu-action" onclick="doCmd('redo')">Redo <span class="shortcut">Ctrl+Y</span></div>
+      <button type="button" class="menu-action" onclick="doCmd('undo')">Undo <span class="shortcut">Ctrl+Z</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('redo')">Redo <span class="shortcut">Ctrl+Y</span></button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="doCmd('cut')">Cut <span class="shortcut">Ctrl+X</span></div>
-      <div class="menu-action" onclick="doCmd('copy')">Copy <span class="shortcut">Ctrl+C</span></div>
-      <div class="menu-action" onclick="doCmd('paste')">Paste <span class="shortcut">Ctrl+V</span></div>
-      <div class="menu-action" onclick="doCmd('selectAll')">Select All <span class="shortcut">Ctrl+A</span></div>
+      <button type="button" class="menu-action" onclick="doCmd('cut')">Cut <span class="shortcut">Ctrl+X</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('copy')">Copy <span class="shortcut">Ctrl+C</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('paste')">Paste <span class="shortcut">Ctrl+V</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('selectAll')">Select All <span class="shortcut">Ctrl+A</span></button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="toggleFindBar()">Find & Replace <span class="shortcut">Ctrl+H</span></div>
+      <button type="button" class="menu-action" onclick="toggleFindBar()">Find & Replace <span class="shortcut">Ctrl+H</span></button>
     </div>
   </div>
 
   <div class="menu-item" data-menu="insert">
     Insert
     <div class="menu-dropdown">
-      <div class="menu-action" onclick="insertImage()">Image…</div>
-      <div class="menu-action" onclick="insertLink()">Link… <span class="shortcut">Ctrl+K</span></div>
-      <div class="menu-action" onclick="showTableDialog()">Table…</div>
-      <div class="menu-action" onclick="insertHR()">Horizontal Rule</div>
-      <div class="menu-action" onclick="insertCodeBlock()">Code Block</div>
-      <div class="menu-action" onclick="insertBlockquote()">Blockquote</div>
-      <div class="menu-action" onclick="insertPageBreak()">Page Break</div>
+      <button type="button" class="menu-action" onclick="insertImage()">Image…</button>
+      <button type="button" class="menu-action" onclick="insertLink()">Link… <span class="shortcut">Ctrl+K</span></button>
+      <button type="button" class="menu-action" onclick="showTableDialog()">Table…</button>
+      <button type="button" class="menu-action" onclick="insertHR()">Horizontal Rule</button>
+      <button type="button" class="menu-action" onclick="insertCodeBlock()">Code Block</button>
+      <button type="button" class="menu-action" onclick="insertBlockquote()">Blockquote</button>
+      <button type="button" class="menu-action" onclick="insertPageBreak()">Page Break</button>
     </div>
   </div>
 
   <div class="menu-item" data-menu="format">
     Format
     <div class="menu-dropdown">
-      <div class="menu-action" onclick="doCmd('bold')">Bold <span class="shortcut">Ctrl+B</span></div>
-      <div class="menu-action" onclick="doCmd('italic')">Italic <span class="shortcut">Ctrl+I</span></div>
-      <div class="menu-action" onclick="doCmd('underline')">Underline <span class="shortcut">Ctrl+U</span></div>
-      <div class="menu-action" onclick="doCmd('strikeThrough')">Strikethrough</div>
+      <button type="button" class="menu-action" onclick="doCmd('bold')">Bold <span class="shortcut">Ctrl+B</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('italic')">Italic <span class="shortcut">Ctrl+I</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('underline')">Underline <span class="shortcut">Ctrl+U</span></button>
+      <button type="button" class="menu-action" onclick="doCmd('strikeThrough')">Strikethrough</button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="doCmd('superscript')">Superscript</div>
-      <div class="menu-action" onclick="doCmd('subscript')">Subscript</div>
+      <button type="button" class="menu-action" onclick="doCmd('superscript')">Superscript</button>
+      <button type="button" class="menu-action" onclick="doCmd('subscript')">Subscript</button>
       <div class="menu-sep"></div>
-      <div class="menu-action" onclick="clearFormat()">Clear Formatting</div>
+      <button type="button" class="menu-action" onclick="clearFormat()">Clear Formatting</button>
     </div>
   </div>
 
   <div class="menu-item" data-menu="view">
     View
     <div class="menu-dropdown">
-      <div class="menu-action" onclick="toggleFullscreen()">Toggle Fullscreen <span class="shortcut">F11</span></div>
-      <div class="menu-action" onclick="zoomIn()">Zoom In <span class="shortcut">Ctrl++</span></div>
-      <div class="menu-action" onclick="zoomOut()">Zoom Out <span class="shortcut">Ctrl+-</span></div>
-      <div class="menu-action" onclick="zoomReset()">Reset Zoom <span class="shortcut">Ctrl+0</span></div>
+      <button type="button" class="menu-action" onclick="toggleFullscreen()">Toggle Fullscreen <span class="shortcut">F11</span></button>
+      <button type="button" class="menu-action" onclick="zoomIn()">Zoom In <span class="shortcut">Ctrl++</span></button>
+      <button type="button" class="menu-action" onclick="zoomOut()">Zoom Out <span class="shortcut">Ctrl+-</span></button>
+      <button type="button" class="menu-action" onclick="zoomReset()">Reset Zoom <span class="shortcut">Ctrl+0</span></button>
     </div>
   </div>
 
@@ -697,16 +700,16 @@
 
     <!-- Colors -->
     <div class="toolbar-group">
-      <button class="tb-btn color-btn" title="Text Color">
-        <span style="font-weight:700;font-size:15px;">A</span>
+      <label class="tb-btn color-btn" title="Text Color">
+        <span style="font-weight:700;font-size:15px;" aria-hidden="true">A</span>
         <span class="color-underline" id="fgColorBar" style="background:#000000"></span>
-        <input type="color" id="fgColor" value="#000000" onchange="setTextColor(this.value)">
-      </button>
-      <button class="tb-btn color-btn" title="Highlight Color">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;stroke:none"><rect x="3" y="18" width="18" height="4" rx="1"/><path d="M12 2l5 14H7L12 2z"/></svg>
+        <input type="color" id="fgColor" value="#000000" aria-label="Text color" onchange="setTextColor(this.value)">
+      </label>
+      <label class="tb-btn color-btn" title="Highlight Color">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;stroke:none" aria-hidden="true"><rect x="3" y="18" width="18" height="4" rx="1"/><path d="M12 2l5 14H7L12 2z"/></svg>
         <span class="color-underline" id="bgColorBar" style="background:#ffff00"></span>
-        <input type="color" id="bgColor" value="#ffff00" onchange="setHighlight(this.value)">
-      </button>
+        <input type="color" id="bgColor" value="#ffff00" aria-label="Highlight color" onchange="setHighlight(this.value)">
+      </label>
     </div>
 
     <div class="toolbar-sep"></div>
@@ -1246,6 +1249,7 @@ img { max-width: 100%; }
 </head>
 <body>
 ${editor.innerHTML}
+</main>
 </body>
 </html>`;
   const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
@@ -1664,6 +1668,20 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
 loadAutoSave();
 updateStats();
 editor.focus();
+
+// Accessible names: controls named only by title (or nothing) get an
+// aria-label; color inputs nested inside proxy buttons leave the tab
+// order so the button is the single control.
+document.querySelectorAll('input, select, textarea').forEach((el) => {
+  if ((!el.labels || el.labels.length === 0) && !el.getAttribute('aria-label')) {
+    const name = el.title || el.placeholder || el.id;
+    if (name) el.setAttribute('aria-label', name.replace(/([a-z])([A-Z])/g, '$1 $2'));
+  }
+});
+document.querySelectorAll('button input').forEach((el) => {
+  el.setAttribute('tabindex', '-1');
+  el.setAttribute('aria-hidden', 'true');
+});
 </script>
 </body>
 </html>
