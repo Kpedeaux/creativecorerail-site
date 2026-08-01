@@ -257,7 +257,7 @@ strong { color: var(--ink); font-weight: 600; }
 .nav-toggle svg { width: 24px; height: 24px; display: block; }
 
 /* ---------- Home hero ---------- */
-.hero { background: var(--paper); border-bottom: 1px solid var(--rule); }
+.hero { background: var(--paper); }
 
 .hero-inner {
   max-width: 1080px;
@@ -351,7 +351,7 @@ strong { color: var(--ink); font-weight: 600; }
 .row-item p { color: var(--charcoal); }
 
 /* ---------- Bands ---------- */
-.band { border-bottom: 1px solid var(--rule); }
+.band { position: relative; }
 .band--parchment { background: var(--paper-2); }
 
 .split {
@@ -507,7 +507,7 @@ strong { color: var(--ink); font-weight: 600; }
 .footer-links a:hover { color: #fff; }
 
 /* ---------- Subpage hero ---------- */
-.page-hero { background: var(--paper); border-bottom: 1px solid var(--rule); }
+.page-hero { background: var(--paper); }
 .page-hero-inner { max-width: 1080px; margin: 0 auto; padding: var(--s7) var(--s4) var(--s6); }
 .page-hero-lede { font-size: 18px; margin-top: var(--s3); max-width: 60ch; }
 
@@ -829,4 +829,77 @@ span.archive-link { color: #B9B4A9; }
 }
 .skip-nav:focus {
   top: 12px;
+}
+
+/* ---------- Human touches ---------- */
+/* Rail-track section divider: the logo's rail laid on its side,
+   drawn slightly imperfect. Replaces the flat hairline between bands. */
+.band::after, .hero::after, .page-hero::after {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 16px;
+  margin: 0 auto 18px;
+  opacity: 0.7;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16'><g fill='none' stroke='%23A3B18A' stroke-width='1.3' stroke-linecap='round'><path d='M6 8.2 C 50 7.3, 120 8.9, 194 7.9'/><path d='M54 3.6 L53.6 12.6'/><path d='M100 3.2 L100.3 12.9'/><path d='M146 3.5 L145.7 12.4'/></g><g fill='%23A3B18A'><circle cx='6' cy='8.2' r='2.1'/><circle cx='194' cy='7.9' r='2.1'/><circle cx='54' cy='3.6' r='1.8'/><circle cx='53.6' cy='12.6' r='1.8'/><circle cx='100' cy='3.2' r='1.8'/><circle cx='100.3' cy='12.9' r='1.8'/><circle cx='146' cy='3.5' r='1.8'/><circle cx='145.7' cy='12.4' r='1.8'/></g></svg>") no-repeat center / contain;
+}
+.cta-section::after { display: none; }
+
+/* Inspector's stamp: one per site, on the proof strip */
+.proof-inner { position: relative; }
+.stamp {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--copper);
+  border: 2px solid var(--copper);
+  border-radius: 7px;
+  padding: 9px 16px;
+  opacity: 0.78;
+  transform: rotate(-2.5deg);
+  box-shadow: inset 0 0 0 2px var(--paper-2), inset 0 0 0 3px rgba(184, 134, 11, 0.5);
+}
+@media (min-width: 700px) {
+  .stamp { position: absolute; top: 44px; right: 32px; }
+}
+@media (max-width: 699px) {
+  .stamp { display: inline-block; margin-top: 20px; }
+}
+
+/* Ledger layout: section heading hangs in a left margin column */
+@media (min-width: 960px) {
+  .section-inner--ledger {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    column-gap: var(--s6);
+  }
+  .section-inner--ledger > h2 {
+    grid-column: 1;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    padding-top: 6px;
+  }
+  .section-inner--ledger > *:not(h2) { grid-column: 2; }
+  .section-inner--ledger > .lead { margin-top: 0; }
+  .section-inner--ledger .row-list, .section-inner--ledger .faq,
+  .section-inner--ledger .archive-group, .section-inner--ledger .split { margin-top: 0; }
+  .section-inner--ledger .archive-group + .archive-group { margin-top: var(--s5); }
+
+  /* One card rides high on purpose */
+  .work-grid--offset .work-card:nth-child(2) { margin-top: -24px; }
+}
+
+/* Paper grain over everything, felt not seen */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
 }
