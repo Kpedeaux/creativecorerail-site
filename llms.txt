@@ -16,7 +16,7 @@ CoreRail (creativecorerail.com) is Kevin Pedeaux, a New Orleans operator who bui
 ## Products & pricing
 - Coffee Shop Portal: operations SaaS for coffee shops and small restaurants (schedules, checklists, recipes, messaging, inventory, bookings). $149 to $559/month by locations and team size, 14-day free trial. Sign up: https://coffeeshop.creativecorerail.com/signup | Live app: https://coffeeshop.creativecorerail.com
 - CoreRail Sites & Marketing: a hand-coded website built and run for you, optimized for search and AI search (GEO), turning social posts into site news stories and Google Business Profile posts. $499/month. Details: https://creativecorerail.com/sites-and-marketing.html
-- Bundle: both products together for $799/month, at any portal tier.
+- Bundle: both products together for $799/month on the Growth and Pro portal tiers.
 - Food Hall Manager (vendor settlements from live Square data): https://creativecorerail.com/products/food-hall-manager.html
 - Manager Portal (shift handoffs, bar inventory, sales-based ordering): https://creativecorerail.com/products/manager-portal.html
 
