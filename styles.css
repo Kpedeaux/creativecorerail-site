@@ -903,3 +903,16 @@ body::after {
   opacity: 0.028;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
 }
+
+/* Site screenshot gallery (Sites & Marketing) */
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s5) var(--s4);
+  margin-top: var(--s5);
+}
+a.shot-item { display: block; color: inherit; }
+a.shot-item:hover .framed { border-color: var(--sage-deep); }
+a.shot-item:hover .figure-caption { color: var(--sage-deep); }
+@media (max-width: 960px) { .shot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) { .shot-grid { grid-template-columns: 1fr; } }
