@@ -35,6 +35,14 @@
   src: url('/fonts/ibm-plex-sans-v23-latin-700.woff2') format('woff2');
 }
 @font-face {
+  /* Logo wordmark ONLY, per the brand guide lockup. Not for headlines. */
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond.woff2') format('woff2');
+}
+@font-face {
   font-family: 'DM Mono';
   font-style: normal;
   font-weight: 400;
@@ -216,10 +224,11 @@ strong { color: var(--ink); font-weight: 600; }
 .nav-logo { display: flex; align-items: center; gap: 11px; }
 
 .nav-wordmark {
-  font-family: var(--font-body);
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.16em;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  line-height: 1;
   color: var(--paper);
 }
 .nav-wordmark span { color: var(--sage-light); }
@@ -495,9 +504,11 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .footer-left { display: flex; align-items: center; gap: 12px; }
 .footer-wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.16em;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  line-height: 1;
   color: var(--paper);
 }
 .footer-wordmark span { color: var(--sage-light); }
