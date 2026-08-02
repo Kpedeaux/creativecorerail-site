@@ -133,6 +133,13 @@ body {
   display: none;
 }
 .crop-overlay.active { display: block; pointer-events: auto; }
+.tool-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
+  display: none;
+}
+.tool-overlay.active { display: block; }
 
 /* Right Panel */
 .right-panel {
@@ -318,6 +325,41 @@ input[type="range"]::-moz-range-thumb {
 }
 .aspect-btn.active { background: #1b6fd8; color: #fff; border-color: #1b6fd8; }
 
+/* Clone stamp panel */
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.check-row input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.panel-hint {
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  margin-top: 8px;
+}
+.panel-hint kbd {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-family: inherit;
+}
+.clone-status {
+  font-size: 10px;
+  margin-top: 6px;
+  color: var(--text-secondary);
+}
+.clone-status.set { color: var(--accent); }
+
 /* Buttons */
 .btn {
   padding: 6px 14px;
@@ -478,6 +520,9 @@ input[type="range"]::-moz-range-thumb {
   <button class="tool-btn" id="tool-crop" onclick="setTool('crop')" title="Crop">
     &#9645;<span class="tooltip">Crop (C)</span>
   </button>
+  <button class="tool-btn" id="tool-clone" onclick="setTool('clone')" title="Clone Stamp">
+    &#9678;<span class="tooltip">Clone Stamp (S) &mdash; Alt+Click to set source</span>
+  </button>
   <div class="tool-sep"></div>
   <button class="tool-btn" onclick="rotateImage(-90)" title="Rotate Left">
     &#8634;<span class="tooltip">Rotate Left</span>
@@ -519,6 +564,7 @@ input[type="range"]::-moz-range-thumb {
     <div class="canvas-wrapper" id="canvasWrapper">
       <canvas id="mainCanvas"></canvas>
       <canvas class="crop-overlay" id="cropOverlay"></canvas>
+      <canvas class="tool-overlay" id="toolOverlay"></canvas>
     </div>
   </div>
 
@@ -683,6 +729,41 @@ input[type="range"]::-moz-range-thumb {
       </div>
     </div>
 
+    <!-- Clone Stamp -->
+    <div class="panel-section" id="clonePanel">
+      <button type="button" class="panel-header collapsed" onclick="togglePanel(this)" aria-expanded="false">
+        <span>Clone Stamp</span><span class="arrow">&#9660;</span>
+      </button>
+      <div class="panel-body">
+        <div class="slider-group">
+          <div class="slider-label"><span>Brush Size</span><span id="cloneSizeVal">60</span></div>
+          <input type="range" min="1" max="500" value="60" id="cloneSize" oninput="updateCloneSlider(this,'cloneSizeVal')">
+        </div>
+        <div class="slider-group">
+          <div class="slider-label"><span>Hardness</span><span id="cloneHardnessVal">50</span></div>
+          <input type="range" min="0" max="100" value="50" id="cloneHardness" oninput="updateCloneSlider(this,'cloneHardnessVal')">
+        </div>
+        <div class="slider-group">
+          <div class="slider-label"><span>Opacity</span><span id="cloneOpacityVal">100</span></div>
+          <input type="range" min="1" max="100" value="100" id="cloneOpacity" oninput="updateCloneSlider(this,'cloneOpacityVal')">
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="cloneAligned" checked onchange="onCloneAlignedChange()">
+          <label for="cloneAligned">Aligned (source follows the brush)</label>
+        </div>
+        <div class="clone-status" id="cloneStatus" role="status">Source: not set</div>
+        <div class="btn-row">
+          <button class="btn btn-sm" onclick="setTool('clone')">Use Tool</button>
+          <button class="btn btn-sm" onclick="clearCloneSource()">Clear Source</button>
+        </div>
+        <div class="panel-hint">
+          <kbd>Alt</kbd> + click sets the source point, then drag to paint.
+          <kbd>[</kbd> / <kbd>]</kbd> resize the brush.
+          Uncheck Aligned to re-sample from the same source on every stroke.
+        </div>
+      </div>
+    </div>
+
     <!-- Crop -->
     <div class="panel-section">
       <button type="button" class="panel-header" onclick="togglePanel(this)" aria-expanded="true">
@@ -829,6 +910,17 @@ let cropDragType = '';
 let cropStart = { x: 0, y: 0 };
 let cropAspect = null;
 
+// Clone stamp state
+let cloneSource = null;          // {x,y} anchor in image coords
+let cloneOffset = null;          // {dx,dy} brush -> source delta, locked on first stroke
+let cloneStroking = false;
+let cloneLast = null;            // last stamped point in image coords
+let cloneSnapshot = null;        // workingCanvas frozen at stroke start (source pixels)
+let cloneDisplaySnapshot = null; // displayCanvas frozen at stroke start (preview pixels)
+let cloneBrushCanvas = null;     // reusable scratch canvas for one stamp
+let cloneCursor = null;          // {x,y} hover position in image coords
+let cloneStrokeDirty = false;
+
 // Curves state
 let curvesChannel = 'rgb';
 let curvesPoints = {
@@ -906,6 +998,7 @@ function loadImageFile(file) {
       workingCtx.drawImage(img, 0, 0);
       resetAllSliders();
       resetCurves();
+      resetCloneState();
       undoStack = [];
       redoStack = [];
       pushUndo();
@@ -1202,6 +1295,7 @@ function applyAllAdjustments() {
 
   updateHistogram();
   updateCropOverlaySize();
+  drawToolOverlay();
   updateCanvasTransform();
 }
 
@@ -1567,9 +1661,12 @@ function zoomOut() { zoom = Math.max(zoom / 1.25, 0.05); updateCanvasTransform()
 function zoomFit() {
   if (!displayCanvas || !displayCanvas.width) return;
   const container = document.getElementById('canvasContainer');
-  const cw = container.clientWidth - 40;
-  const ch = container.clientHeight - 40;
-  zoom = Math.min(cw / displayCanvas.width, ch / displayCanvas.height, 1);
+  // A container narrower/shorter than the 40px margin would make these negative,
+  // which flips the canvas via a negative scale. Never let the fit go below 5%.
+  const cw = Math.max(1, container.clientWidth - 40);
+  const ch = Math.max(1, container.clientHeight - 40);
+  const fit = Math.min(cw / displayCanvas.width, ch / displayCanvas.height, 1);
+  zoom = Math.max(0.05, fit);
   panX = 0; panY = 0;
   updateCanvasTransform();
 }
@@ -1589,12 +1686,18 @@ function setupCanvasEvents() {
   }, { passive: false });
 
   container.addEventListener('mousedown', (e) => {
-    if (currentTool === 'pointer' || e.button === 1 || (e.button === 0 && e.altKey)) {
+    // Alt+click is the clone stamp's source-picker, so it must not pan
+    const altPan = e.button === 0 && e.altKey && currentTool !== 'clone';
+    if (currentTool === 'pointer' || e.button === 1 || altPan) {
       isPanning = true;
       panStart = { x: e.clientX - panX * zoom, y: e.clientY - panY * zoom };
       container.style.cursor = 'grabbing';
     } else if (currentTool === 'crop' && workingCanvas) {
       startCropDrag(e);
+    } else if (currentTool === 'clone' && workingCanvas && e.button === 0) {
+      e.preventDefault();
+      if (e.altKey) setCloneSource(e);
+      else startCloneStroke(e);
     }
   });
 
@@ -1605,6 +1708,10 @@ function setupCanvasEvents() {
       updateCanvasTransform();
     } else if (cropDragging) {
       continueCropDrag(e);
+    } else if (currentTool === 'clone' && workingCanvas) {
+      cloneCursor = eventToImageCoords(e);
+      if (cloneStroking) paintCloneTo(cloneCursor);
+      drawToolOverlay();
     }
     updateCursorInfo(e);
   });
@@ -1612,13 +1719,17 @@ function setupCanvasEvents() {
   container.addEventListener('mouseup', () => {
     isPanning = false;
     cropDragging = false;
+    endCloneStroke();
     const container2 = document.getElementById('canvasContainer');
-    container2.style.cursor = currentTool === 'crop' ? 'crosshair' : 'default';
+    container2.style.cursor = cursorForTool();
   });
 
   container.addEventListener('mouseleave', () => {
     isPanning = false;
     cropDragging = false;
+    endCloneStroke();
+    cloneCursor = null;
+    drawToolOverlay();
   });
 }
 
@@ -1642,12 +1753,29 @@ function setTool(tool) {
   const btn = document.getElementById('tool-' + tool);
   if (btn) btn.classList.add('active');
   const container = document.getElementById('canvasContainer');
-  container.style.cursor = tool === 'crop' ? 'crosshair' : 'default';
+  container.style.cursor = cursorForTool();
 
   const overlay = document.getElementById('cropOverlay');
   if (tool !== 'crop') {
     overlay.classList.remove('active');
   }
+
+  if (tool === 'clone') {
+    const panel = document.getElementById('clonePanel');
+    const header = panel.querySelector('.panel-header');
+    header.classList.remove('collapsed');
+    header.setAttribute('aria-expanded', 'true');
+    panel.scrollIntoView({ block: 'nearest' });
+    updateCloneStatus();
+  } else {
+    endCloneStroke();
+    cloneCursor = null;
+  }
+  drawToolOverlay();
+}
+
+function cursorForTool() {
+  return (currentTool === 'crop' || currentTool === 'clone') ? 'crosshair' : 'default';
 }
 
 // ===== CROP =====
@@ -1786,6 +1914,7 @@ function applyCrop() {
   workingCtx.putImageData(cropData, 0, 0);
 
   pushUndo();
+  resetCloneState();
   isCropping = false;
   document.getElementById('cropOverlay').classList.remove('active');
   updateStatusDimensions(rw, rh);
@@ -1797,6 +1926,250 @@ function cancelCrop() {
   isCropping = false;
   cropRect = { x: 0, y: 0, w: 0, h: 0 };
   document.getElementById('cropOverlay').classList.remove('active');
+}
+
+// ===== CLONE STAMP =====
+// Paints into workingCanvas (the real pixels) so every slider/curve still applies
+// on top. During a stroke we also stamp a preview onto displayCanvas so painting
+// stays responsive on large images; the full re-render happens on mouse up.
+
+function eventToImageCoords(e) {
+  const rect = displayCanvas.getBoundingClientRect();
+  const scaleX = rect.width / displayCanvas.width;
+  const scaleY = rect.height / displayCanvas.height;
+  return {
+    x: (e.clientX - rect.left) / scaleX,
+    y: (e.clientY - rect.top) / scaleY
+  };
+}
+
+function snapshotCanvas(src) {
+  const c = document.createElement('canvas');
+  c.width = src.width;
+  c.height = src.height;
+  c.getContext('2d').drawImage(src, 0, 0);
+  return c;
+}
+
+function updateCloneSlider(el, valId) {
+  document.getElementById(valId).textContent = el.value;
+  drawToolOverlay();
+}
+
+function onCloneAlignedChange() {
+  // Switching modes re-anchors the sample point on the next stroke
+  cloneOffset = null;
+  updateCloneStatus();
+}
+
+function setCloneSource(e) {
+  const p = eventToImageCoords(e);
+  cloneSource = { x: p.x, y: p.y };
+  cloneOffset = null;
+  updateCloneStatus();
+  drawToolOverlay();
+}
+
+function clearCloneSource() {
+  cloneSource = null;
+  cloneOffset = null;
+  updateCloneStatus();
+  drawToolOverlay();
+}
+
+function resetCloneState() {
+  cloneSource = null;
+  cloneOffset = null;
+  cloneStroking = false;
+  cloneLast = null;
+  cloneSnapshot = null;
+  cloneDisplaySnapshot = null;
+  cloneStrokeDirty = false;
+  updateCloneStatus();
+}
+
+function updateCloneStatus() {
+  const el = document.getElementById('cloneStatus');
+  if (!el) return;
+  if (!cloneSource) {
+    el.textContent = 'Source: not set — Alt+click the image';
+    el.classList.remove('set');
+  } else {
+    el.textContent = `Source: ${Math.round(cloneSource.x)}, ${Math.round(cloneSource.y)}`;
+    el.classList.add('set');
+  }
+}
+
+function startCloneStroke(e) {
+  if (!workingCanvas) return;
+  if (!cloneSource) {
+    updateCloneStatus();
+    return;
+  }
+  const p = eventToImageCoords(e);
+
+  // Aligned: lock the offset on the first stroke and keep it.
+  // Unaligned: every stroke starts sampling from the anchor again.
+  if (!cloneOffset || !document.getElementById('cloneAligned').checked) {
+    cloneOffset = { dx: p.x - cloneSource.x, dy: p.y - cloneSource.y };
+  }
+
+  // Freeze the sources so overlapping source/destination can't feed back on itself
+  cloneSnapshot = snapshotCanvas(workingCanvas);
+  cloneDisplaySnapshot = snapshotCanvas(displayCanvas);
+
+  cloneStroking = true;
+  cloneStrokeDirty = false;
+  cloneLast = null;
+  paintCloneTo(p);
+}
+
+function paintCloneTo(p) {
+  const size = getSlider('cloneSize');
+  const spacing = Math.max(0.5, size * 0.12);
+
+  if (!cloneLast) {
+    stampClone(p);
+    cloneLast = { x: p.x, y: p.y };
+    return;
+  }
+
+  const dx = p.x - cloneLast.x;
+  const dy = p.y - cloneLast.y;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+  if (dist < spacing) return;
+
+  const steps = Math.floor(dist / spacing);
+  for (let i = 1; i <= steps; i++) {
+    const t = (i * spacing) / dist;
+    stampClone({ x: cloneLast.x + dx * t, y: cloneLast.y + dy * t });
+  }
+  const used = (steps * spacing) / dist;
+  cloneLast = { x: cloneLast.x + dx * used, y: cloneLast.y + dy * used };
+}
+
+function stampClone(p) {
+  const size = getSlider('cloneSize');
+  const radius = size / 2;
+  const hardness = getSlider('cloneHardness') / 100;
+  const opacity = getSlider('cloneOpacity') / 100;
+
+  const d = Math.ceil(size) + 2;
+  if (!cloneBrushCanvas || cloneBrushCanvas.width !== d) {
+    cloneBrushCanvas = document.createElement('canvas');
+    cloneBrushCanvas.width = d;
+    cloneBrushCanvas.height = d;
+  }
+  const bctx = cloneBrushCanvas.getContext('2d');
+
+  // Inner radius must stay strictly below the outer one or the gradient paints nothing
+  const inner = Math.min(radius * hardness, radius - 0.01);
+
+  const stamp = (srcCanvas, destCtx) => {
+    const sx = p.x - cloneOffset.dx - d / 2;
+    const sy = p.y - cloneOffset.dy - d / 2;
+
+    bctx.clearRect(0, 0, d, d);
+    bctx.globalCompositeOperation = 'source-over';
+    bctx.drawImage(srcCanvas, sx, sy, d, d, 0, 0, d, d);
+
+    // Feather to a soft round brush
+    bctx.globalCompositeOperation = 'destination-in';
+    const grad = bctx.createRadialGradient(d / 2, d / 2, Math.max(0, inner), d / 2, d / 2, radius);
+    grad.addColorStop(0, 'rgba(0,0,0,1)');
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    bctx.fillStyle = grad;
+    bctx.fillRect(0, 0, d, d);
+    bctx.globalCompositeOperation = 'source-over';
+
+    destCtx.save();
+    destCtx.globalAlpha = opacity;
+    destCtx.drawImage(cloneBrushCanvas, p.x - d / 2, p.y - d / 2);
+    destCtx.restore();
+  };
+
+  stamp(cloneSnapshot, workingCtx);          // the real edit
+  stamp(cloneDisplaySnapshot, displayCtx);   // live preview
+  cloneStrokeDirty = true;
+}
+
+function endCloneStroke() {
+  if (!cloneStroking) return;
+  cloneStroking = false;
+  cloneLast = null;
+  cloneSnapshot = null;
+  cloneDisplaySnapshot = null;
+  if (cloneStrokeDirty) {
+    cloneStrokeDirty = false;
+    pushUndo();
+    applyAllAdjustments();   // repaint from workingCanvas so the preview is replaced by the real render
+  }
+}
+
+function adjustCloneBrush(delta) {
+  const el = document.getElementById('cloneSize');
+  const next = Math.max(1, Math.min(500, parseInt(el.value) + delta));
+  el.value = next;
+  document.getElementById('cloneSizeVal').textContent = next;
+  drawToolOverlay();
+}
+
+function drawToolOverlay() {
+  const ov = document.getElementById('toolOverlay');
+  if (!ov) return;
+
+  if (currentTool !== 'clone' || !workingCanvas) {
+    ov.classList.remove('active');
+    return;
+  }
+  ov.classList.add('active');
+
+  if (ov.width !== displayCanvas.width) ov.width = displayCanvas.width;
+  if (ov.height !== displayCanvas.height) ov.height = displayCanvas.height;
+
+  const ctx = ov.getContext('2d');
+  ctx.clearRect(0, 0, ov.width, ov.height);
+
+  const lw = Math.max(0.5, 1 / zoom);
+  const radius = getSlider('cloneSize') / 2;
+
+  // Where the next stamp would sample from
+  let sample = null;
+  if (cloneSource && cloneCursor && cloneOffset) {
+    sample = { x: cloneCursor.x - cloneOffset.dx, y: cloneCursor.y - cloneOffset.dy };
+  } else if (cloneSource) {
+    sample = cloneSource;
+  }
+
+  if (sample) {
+    ctx.strokeStyle = 'rgba(74,158,255,0.9)';
+    ctx.lineWidth = lw;
+    ctx.setLineDash([4 * lw, 3 * lw]);
+    ctx.beginPath();
+    ctx.arc(sample.x, sample.y, radius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    const cross = Math.max(4, 6 * lw);
+    ctx.beginPath();
+    ctx.moveTo(sample.x - cross, sample.y);
+    ctx.lineTo(sample.x + cross, sample.y);
+    ctx.moveTo(sample.x, sample.y - cross);
+    ctx.lineTo(sample.x, sample.y + cross);
+    ctx.stroke();
+  }
+
+  if (cloneCursor) {
+    // Two-tone ring so it reads on both light and dark pixels
+    ctx.beginPath();
+    ctx.arc(cloneCursor.x, cloneCursor.y, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(0,0,0,0.7)';
+    ctx.lineWidth = lw * 2;
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+    ctx.lineWidth = lw;
+    ctx.stroke();
+  }
 }
 
 // ===== ROTATE / FLIP =====
@@ -1815,6 +2188,7 @@ function rotateImage(degrees) {
   workingCanvas.height = temp.height;
   workingCtx.drawImage(temp, 0, 0);
   pushUndo();
+  resetCloneState();
   updateStatusDimensions(temp.width, temp.height);
   updateDisplay();
   zoomFit();
@@ -1837,6 +2211,7 @@ function flipImage(dir) {
   workingCtx.clearRect(0, 0, workingCanvas.width, workingCanvas.height);
   workingCtx.drawImage(temp, 0, 0);
   pushUndo();
+  resetCloneState();
   updateDisplay();
 }
 
@@ -1883,6 +2258,7 @@ function applyResize() {
   workingCtx.drawImage(temp, 0, 0);
 
   pushUndo();
+  resetCloneState();
   closeResizeModal();
   updateStatusDimensions(nw, nh);
   updateDisplay();
@@ -1965,6 +2341,7 @@ function resetAll() {
   workingCtx.drawImage(originalImage, 0, 0);
   resetAllSliders();
   resetCurves();
+  resetCloneState();
   undoStack = [];
   redoStack = [];
   pushUndo();
@@ -2009,7 +2386,8 @@ function doSave() {
 
 // ===== PANEL TOGGLE =====
 function togglePanel(header) {
-  header.classList.toggle('collapsed');
+  const collapsed = header.classList.toggle('collapsed');
+  header.setAttribute('aria-expanded', String(!collapsed));
 }
 
 // ===== KEYBOARD SHORTCUTS =====
@@ -2026,6 +2404,11 @@ function setupKeyboard() {
     if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveFile(); }
     if (e.key === 'v') setTool('pointer');
     if (e.key === 'c' && !e.ctrlKey && !e.metaKey) setTool('crop');
+    if (e.key === 's' && !e.ctrlKey && !e.metaKey) setTool('clone');
+    if (currentTool === 'clone') {
+      if (e.key === '[') adjustCloneBrush(-Math.max(1, Math.round(getSlider('cloneSize') * 0.1)));
+      if (e.key === ']') adjustCloneBrush(Math.max(1, Math.round(getSlider('cloneSize') * 0.1)));
+    }
     if (e.key === '+' || e.key === '=') zoomIn();
     if (e.key === '-') zoomOut();
     if (e.key === '0') zoomFit();
