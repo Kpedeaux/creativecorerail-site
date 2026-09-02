@@ -927,3 +927,49 @@ a.shot-item:hover .framed { border-color: var(--sage-deep); }
 a.shot-item:hover .figure-caption { color: var(--sage-deep); }
 @media (max-width: 960px) { .shot-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 700px) { .shot-grid { grid-template-columns: 1fr; } }
+
+/* Made by CoreRail credit ---------------------------------------------- */
+.corerail-credit {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: rgba(250, 248, 244, 0.72);
+  margin-top: 2.25rem;
+}
+.corerail-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9em;
+  text-decoration: none;
+  color: inherit;
+}
+.corerail-stamp:hover .corerail-stamp__label,
+.corerail-stamp:focus-visible .corerail-stamp__label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.corerail-stamp__seal {
+  width: 4.4em;
+  height: 4.4em;
+  flex-shrink: 0;
+  display: block;
+}
+.corerail-stamp__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.corerail-stamp__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.corerail-stamp__word {
+  height: 1.3em;
+  width: auto;
+  display: block;
+}
+
+.corerail-credit [fill="#6B7F5E"] { fill: var(--corerail-sage, #6B7F5E); }
+/* ---------------------------------------------------------------------- */
