@@ -935,41 +935,30 @@ a.shot-item:hover .figure-caption { color: var(--sage-deep); }
   display: flex;
   justify-content: center;
   color: rgba(250, 248, 244, 0.72);
-  margin-top: 2.25rem;
+  margin-top: 2rem;
 }
-.corerail-stamp {
+.corerail-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.9em;
+  gap: 0.55em;
   text-decoration: none;
   color: inherit;
 }
-.corerail-stamp:hover .corerail-stamp__label,
-.corerail-stamp:focus-visible .corerail-stamp__label {
+.corerail-badge:hover .corerail-badge__label,
+.corerail-badge:focus-visible .corerail-badge__label {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.corerail-stamp__seal {
-  width: 4.4em;
-  height: 4.4em;
+.corerail-badge__label {
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.corerail-badge__art {
+  height: 1.3em;
+  width: auto;
   flex-shrink: 0;
   display: block;
 }
-.corerail-stamp__text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4em;
-}
-.corerail-stamp__label {
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-.corerail-stamp__word {
-  height: 1.3em;
-  width: auto;
-  display: block;
-}
-
 .corerail-credit [fill="#6B7F5E"] { fill: var(--corerail-sage, #6B7F5E); }
 /* ---------------------------------------------------------------------- */
